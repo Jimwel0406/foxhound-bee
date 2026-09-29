@@ -1,8 +1,8 @@
-<img src="public/img/hx1-hive.jpg" alt="The HX-1 cedar hive with a monitor clipped to its front, photographed in a field" width="100%" />
-
 # FoxHound Bee Company
 
 A single-page website for a fictional apiary in the Cascade foothills, built as a personal front-end design study.
+
+**Live: [foxhound-bee.vercel.app](https://foxhound-bee.vercel.app/)**
 
 ---
 
