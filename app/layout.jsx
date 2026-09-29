@@ -23,9 +23,9 @@ const stencil = Archivo_Black({
 });
 
 export const metadata = {
-  title: "FoxHound Bee Company — Keepers of the Comb",
+  title: "FoxHound Bee — Keepers of the Comb",
   description:
-    "FoxHound Bee Company. Hives, harvest, and pollination from the Cascade foothills.",
+    "FoxHound Bee. Hives, harvest, and pollination from the Cascade foothills.",
 };
 
 export const viewport = {

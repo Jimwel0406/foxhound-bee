@@ -60,7 +60,7 @@ export default function Sprite() {
       <rect x="156" y="48" width="108" height="4" rx="2" fill="#453A30"/>
       <rect x="156" y="58" width="108" height="4" rx="2" fill="#453A30"/>
       <rect x="134" y="298" width="152" height="156" fill="#FDF8EC" stroke="#E4DAC6" strokeWidth="2"/>
-      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE CO.</text>
+      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE</text>
       <text x="210" y="374" textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="34" fontWeight="600" fill="#1A1611">Solstice</text>
       <rect x="164" y="390" width="92" height="1.5" fill="#D9CDB6"/>
       <text x="210" y="414" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="12" fill="#8A7C64">WILDFLOWER · 500 g</text>
@@ -79,7 +79,7 @@ export default function Sprite() {
       <rect x="156" y="48" width="108" height="4" rx="2" fill="#544841"/>
       <rect x="156" y="58" width="108" height="4" rx="2" fill="#544841"/>
       <rect x="134" y="298" width="152" height="156" fill="#12100D" stroke="#3A3129" strokeWidth="2"/>
-      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE CO.</text>
+      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE</text>
       <text x="210" y="374" textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="34" fontWeight="600" fill="#F7F4EC">Vesper</text>
       <rect x="164" y="390" width="92" height="1.5" fill="#3A3129"/>
       <text x="210" y="414" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="12" fill="#8A7C64">BUCKWHEAT · 500 g</text>
@@ -98,7 +98,7 @@ export default function Sprite() {
       <rect x="156" y="48" width="108" height="4" rx="2" fill="#544841"/>
       <rect x="156" y="58" width="108" height="4" rx="2" fill="#544841"/>
       <rect x="134" y="298" width="152" height="156" fill="#12100D" stroke="#3A3129" strokeWidth="2"/>
-      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE CO.</text>
+      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE</text>
       <text x="210" y="374" textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="36" fontWeight="600" fill="#F7F4EC">No. 2</text>
       <rect x="164" y="390" width="92" height="1.5" fill="#3A3129"/>
       <text x="210" y="414" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="12" fill="#8A7C64">SPRING · 500 g</text>
@@ -118,7 +118,7 @@ export default function Sprite() {
       <rect x="156" y="48" width="108" height="4" rx="2" fill="#453A30"/>
       <rect x="156" y="58" width="108" height="4" rx="2" fill="#453A30"/>
       <rect x="134" y="298" width="152" height="156" fill="#FDF8EC" stroke="#E4DAC6" strokeWidth="2"/>
-      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE CO.</text>
+      <text x="210" y="330" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="700" letterSpacing="3" fill="#8A7C64">FOXHOUND BEE</text>
       <text x="210" y="374" textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="34" fontWeight="600" fill="#1A1611">Spring</text>
       <rect x="164" y="390" width="92" height="1.5" fill="#D9CDB6"/>
       <text x="210" y="414" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fill="#8A7C64">NO. 2 · APPLE BLOOM</text>

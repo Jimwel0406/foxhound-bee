@@ -1,4 +1,4 @@
-# FoxHound Bee Company
+# FoxHound Bee
 
 A single-page website for a fictional apiary in the Cascade foothills, built as a personal front-end design study.
 

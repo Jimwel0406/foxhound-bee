@@ -95,7 +95,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="foot-bottom">
-          <span>Copyright &copy; 2026 FoxHound Bee Company. All rights reserved.</span>
+          <span>Copyright &copy; 2026 FoxHound Bee. All rights reserved.</span>
           <a href="#top">Privacy</a>
           <a href="#top">Terms of use</a>
           <a href="#top">Sales policy</a>

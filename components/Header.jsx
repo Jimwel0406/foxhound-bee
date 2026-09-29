@@ -3,11 +3,11 @@ export default function Header() {
     <>
       <header className="nav">
         <div className="nav-inner">
-          <a className="brand" href="#top" aria-label="FoxHound Bee Company home">
+          <a className="brand" href="#top" aria-label="FoxHound Bee home">
             <svg className="mark" viewBox="0 0 32 32" aria-hidden="true">
               <use href="#i-mark" />
             </svg>
-            <span>FoxHound Bee Co.</span>
+            <span>FoxHound Bee</span>
           </a>
           <nav className="nav-links" id="navLinks" aria-label="Primary">
             <a href="#top" data-nav="top">Overview</a>
