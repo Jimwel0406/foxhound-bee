@@ -22,12 +22,15 @@ export default function Header() {
             </button>
             <button className="icon-btn" id="bagBtn" aria-label="Shopping bag" aria-expanded="false">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bag" /></svg>
+              <span className="bag-count" id="bagCount" hidden></span>
             </button>
             <button className="icon-btn menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-menu" /></svg>
             </button>
           </div>
           <div className="popover" id="bagPop" role="dialog" aria-label="Shopping bag">
+            <div id="bagItems" hidden></div>
+            <div id="bagEmpty">
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "18px" }}>
               Your bag is empty.
             </p>
@@ -37,6 +40,7 @@ export default function Header() {
             <Link className="btn btn--primary btn--sm" href="/harvest" style={{ marginTop: "14px" }}>
               Shop the harvest
             </Link>
+            </div>
           </div>
         </div>
         <div className="flyout" id="flyout">
@@ -64,9 +68,10 @@ export default function Header() {
             &#10005;
           </button>
         </div>
-        <p className="search-hint">
-          Try &ldquo;HX-1&rdquo;, &ldquo;Vesper&rdquo;, &ldquo;pollination contract&rdquo;,
-          &ldquo;frame 12&rdquo;. Press Esc to close.
+        <ul className="search-results" id="searchResults" role="listbox" aria-label="Search results" />
+        <p className="search-hint" id="searchHint">
+          Try &ldquo;HX-1&rdquo;, &ldquo;Vesper&rdquo;, &ldquo;frame 12&rdquo;, &ldquo;warranty&rdquo;.
+          Press Esc to close.
         </p>
       </div>
     </>

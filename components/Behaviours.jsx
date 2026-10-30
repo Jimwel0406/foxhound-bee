@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { searchSite } from "./searchIndex";
+import { getCart, cartCount, cartTotal, setQty } from "./cart";
 
 export default function Behaviours() {
   useEffect(() => {
@@ -28,8 +30,11 @@ export default function Behaviours() {
         if (s.getBoundingClientRect().top + window.pageYOffset <= y) cur = s.id;
       });
       if (atBottom) cur = spyIds[spyIds.length - 1];
+      /* pages outside the nav (a product, the story) name their own section, or none; scrolling never picks one */
+      var owner = document.querySelector("[data-nav-current]");
+      var pageNav = owner ? owner.getAttribute("data-nav-current") : "";
       navItems.forEach(function (a) {
-        a.classList.toggle("is-current", a.getAttribute("data-nav") === (window.location.pathname === "/harvest" ? "harvest" : window.location.pathname === "/hives" ? "hives" : window.location.pathname === "/journal" ? "journal" : window.location.pathname === "/support" ? "support" : cur));
+        a.classList.toggle("is-current", a.getAttribute("data-nav") === (window.location.pathname === "/harvest" ? "harvest" : window.location.pathname === "/hives" ? "hives" : window.location.pathname === "/journal" ? "journal" : window.location.pathname === "/support" ? "support" : pageNav));
       });
     }
     window.addEventListener("scroll", spy, { passive: true });
@@ -62,6 +67,7 @@ export default function Behaviours() {
     var searchBtn = document.getElementById("searchBtn");
     function onSearchOpen() {
       overlay.classList.add("is-open");
+      renderResults();
       window.setTimeout(function () {
         input.focus();
       }, 40);
@@ -72,6 +78,49 @@ export default function Behaviours() {
       overlay.classList.remove("is-open");
       input.blur();
     }
+    var results = document.getElementById("searchResults");
+    var active = -1;
+    function esc(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    }
+    function setActive(i) {
+      var items = results.querySelectorAll("a");
+      if (!items.length) return;
+      active = (i + items.length) % items.length;
+      items.forEach(function (a, n) {
+        a.classList.toggle("is-active", n === active);
+        a.setAttribute("aria-selected", n === active ? "true" : "false");
+      });
+      items[active].scrollIntoView({ block: "nearest" });
+    }
+    function renderResults() {
+      var q = input.value;
+      var found = searchSite(q);
+      active = -1;
+      if (!found.length) {
+        results.innerHTML = '<li class="search-empty">Nothing for \u201c' + esc(q.trim()) + '\u201d. Try Vesper or HX-1.</li>';
+        return;
+      }
+      results.innerHTML = (q.trim() ? "" : '<li class="search-label">Popular</li>') + found.map(function (e) {
+        return '<li><a role="option" aria-selected="false" href="' + e.href + '"><b>' + esc(e.title) + '</b><span>' + e.kind + '</span></a></li>';
+      }).join("");
+    }
+    input.addEventListener("input", renderResults);
+    function onSearchKey(e) {
+      if (!overlay.classList.contains("is-open")) return;
+      if (e.key === "ArrowDown") { e.preventDefault(); setActive(active + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); setActive(active - 1); }
+      else if (e.key === "Enter" && document.activeElement === input) {
+        var items = results.querySelectorAll("a");
+        var target = items[active >= 0 ? active : 0];
+        if (target) { e.preventDefault(); target.click(); }
+      }
+    }
+    input.addEventListener("keydown", onSearchKey);
+    function onResultsClick(e) {
+      if (e.target.closest("a")) closeSearch();
+    }
+    results.addEventListener("click", onResultsClick);
     var searchClose = document.getElementById("searchClose");
     searchClose.addEventListener("click", closeSearch);
     function onOverlayClick(e) {
@@ -101,6 +150,57 @@ export default function Behaviours() {
     bagLinks.forEach(function (a) {
       a.addEventListener("click", closeBag);
     });
+
+    /* bag contents: count badge, line items, quantity and remove */
+    var bagCount = document.getElementById("bagCount");
+    var bagItems = document.getElementById("bagItems");
+    var bagEmpty = document.getElementById("bagEmpty");
+    var lastCount = cartCount();
+    function money(n) { return "$" + n.toLocaleString("en-US"); }
+    function escHtml(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+    function renderBag() {
+      var items = getCart();
+      var count = cartCount(items);
+      bagCount.hidden = count === 0;
+      bagCount.textContent = count;
+      bagBtn.setAttribute("aria-label", count ? "Shopping bag, " + count + (count === 1 ? " item" : " items") : "Shopping bag");
+      if (count > lastCount) {
+        bagCount.classList.remove("is-bump");
+        void bagCount.offsetWidth;
+        bagCount.classList.add("is-bump");
+      }
+      lastCount = count;
+      bagEmpty.hidden = count > 0;
+      bagItems.hidden = count === 0;
+      bagItems.innerHTML = count === 0 ? "" :
+        '<ul class="bag-list">' + items.map(function (i) {
+          return '<li class="bag-item" data-id="' + escHtml(i.id) + '">' +
+            '<a class="bag-photo" href="/product/' + escHtml(i.slug) + '"><img src="' + escHtml(i.image) + '" alt="" width="64" height="64"></a>' +
+            '<div class="bag-info"><a href="/product/' + escHtml(i.slug) + '"><b>' + escHtml(i.name) + '</b></a><span>' + escHtml(i.option) + '</span>' +
+            '<div class="bag-qty"><button type="button" data-act="dec" aria-label="One fewer ' + escHtml(i.name) + '">−</button><span aria-live="polite">' + i.qty + '</span><button type="button" data-act="inc" aria-label="One more ' + escHtml(i.name) + '"' + (i.qty >= 9 ? " disabled" : "") + '>+</button></div></div>' +
+            '<div class="bag-line"><b>' + money(i.qty * i.price) + '</b><button type="button" data-act="rm">Remove</button></div></li>';
+        }).join("") + '</ul><div class="bag-sum"><span>Subtotal</span><b>' + money(cartTotal(items)) + '</b></div>';
+    }
+    function onBagAction(e) {
+      var btn = e.target.closest("[data-act]");
+      if (!btn) return;
+      e.stopPropagation(); /* the list re-renders, so keep the outside-click handler from closing the bag */
+      var row = btn.closest(".bag-item");
+      var item = getCart().find(function (i) { return i.id === row.getAttribute("data-id"); });
+      if (!item) return;
+      var act = btn.getAttribute("data-act");
+      setQty(item.id, act === "inc" ? item.qty + 1 : act === "dec" ? item.qty - 1 : 0);
+    }
+    function openBag() {
+      bagPop.classList.add("is-open");
+      bagBtn.setAttribute("aria-expanded", "true");
+      closeFlyout();
+    }
+    bagItems.addEventListener("click", onBagAction);
+    window.addEventListener("fh-cart", renderBag);
+    window.addEventListener("storage", renderBag);
+    window.addEventListener("fh-bag-open", openBag);
+    renderBag();
 
     function onKeydown(e) {
       if (e.key === "Escape") {
@@ -284,10 +384,17 @@ export default function Behaviours() {
         a.removeEventListener("click", closeFlyout);
       });
       searchBtn.removeEventListener("click", onSearchOpen);
+      input.removeEventListener("input", renderResults);
+      input.removeEventListener("keydown", onSearchKey);
+      results.removeEventListener("click", onResultsClick);
       searchClose.removeEventListener("click", closeSearch);
       overlay.removeEventListener("click", onOverlayClick);
       bagBtn.removeEventListener("click", onBagClick);
       document.removeEventListener("click", onDocClick);
+      bagItems.removeEventListener("click", onBagAction);
+      window.removeEventListener("fh-cart", renderBag);
+      window.removeEventListener("storage", renderBag);
+      window.removeEventListener("fh-bag-open", openBag);
       bagLinks.forEach(function (a) {
         a.removeEventListener("click", closeBag);
       });

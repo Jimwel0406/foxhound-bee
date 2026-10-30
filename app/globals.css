@@ -214,6 +214,19 @@ em.accent-word{font-style:italic}
   flex:1;border:0;outline:0;background:none;font-family:var(--font-body);
   font-size:21px;color:var(--text-primary);
 }
+.search-results{max-width:640px;margin:8px auto 0;background:var(--surface);border:1px solid var(--hairline);box-shadow:3px 5px 30px 0 var(--media-shadow);max-height:min(60vh,420px);overflow:auto;animation:fh-slide .24s ease both}
+.search-results:empty{display:none}
+.search-results a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 20px;border-left:3px solid transparent;border-top:1px solid var(--hairline)}
+.search-results li:first-child a{border-top:0}
+.search-results a b{font-family:var(--font-display);font-size:20px;letter-spacing:-.02em}
+.search-results a span{font-size:16px;font-weight:600;color:var(--text-secondary);flex:0 0 auto}
+.search-results a:hover,.search-results a.is-active{background:var(--surface-wash);border-left-color:var(--accent)}
+.search-results a:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.search-label{padding:12px 20px 4px;font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+.search-empty{padding:18px 20px;font-size:18px;font-weight:600}
+.search-box input[type="search"]{-webkit-appearance:none;appearance:none}
+.search-box input::-webkit-search-cancel-button,.search-box input::-webkit-search-decoration,.search-box input::-webkit-search-results-button,.search-box input::-webkit-search-results-decoration{-webkit-appearance:none;appearance:none;display:none}
+.search-box input::-ms-clear{display:none}
 .search-hint{max-width:640px;margin:16px auto 0;font-size:18px;color:var(--text-secondary)}
 .popover{
   position:absolute;top:80px;right:22px;width:270px;color:var(--text-primary);background:var(--surface);
@@ -221,6 +234,32 @@ em.accent-word{font-style:italic}
   padding:18px;display:none;animation:fh-slide .22s ease both;
 }
 .popover.is-open{display:block}
+.icon-btn{position:relative}
+.bag-count{position:absolute;top:-6px;right:-6px;min-width:26px;height:26px;padding:0 6px;border-radius:var(--pill);display:grid;place-content:center;background:var(--text-primary);color:var(--on-dark);border:2px solid var(--accent);font-size:16px;font-weight:700;line-height:1}
+.bag-count[hidden]{display:none}
+.bag-count.is-bump{animation:fh-bump .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes fh-bump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.popover:has(.bag-list){width:min(360px,calc(100vw - 44px));max-height:calc(100vh - 110px);overflow:auto}
+.bag-list{list-style:none}
+.bag-item{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding-block:14px;border-bottom:1px solid var(--hairline)}
+.bag-item:first-child{padding-top:0}
+.bag-photo{display:block;width:64px;height:64px;background:var(--surface-wash);overflow:hidden}
+.bag-photo img{width:100%;height:100%;object-fit:cover}
+.bag-info{min-width:0;display:grid;align-content:start;gap:2px}
+.bag-info b{font-family:var(--font-display);font-size:18px;line-height:1.15;letter-spacing:-.02em}
+.bag-info>span{font-size:16px;font-weight:600}
+.bag-qty{display:inline-flex;align-items:center;gap:4px;margin-top:6px}
+.bag-qty button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--text-primary);font-size:20px;font-weight:700;line-height:1;transition:background-color var(--t-color) var(--ease-color),color var(--t-color) var(--ease-color)}
+.bag-qty button:hover:not(:disabled){background:var(--text-primary);color:var(--on-dark)}
+.bag-qty button:disabled{opacity:.4;cursor:not-allowed}
+.bag-qty span{min-width:28px;text-align:center;font-weight:700}
+.bag-line{display:grid;align-content:space-between;justify-items:end}
+.bag-line b{font-size:18px}
+.bag-line button{font-size:16px;font-weight:700;color:var(--link);border-bottom:1px solid currentColor;padding-block:6px 2px}
+.bag-sum{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px;font-weight:700}
+.bag-sum b{font-family:var(--font-display);font-size:28px;letter-spacing:-.04em}
+.popover button:focus-visible,.popover a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.bag-count.is-bump{animation:none}.bag-qty button{transition:none}}
 
 /* ---------- page anchors ---------- */
 html{scroll-behavior:smooth}
