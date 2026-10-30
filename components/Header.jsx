@@ -1,20 +1,20 @@
+import Link from "next/link";
 export default function Header() {
   return (
     <>
       <header className="nav">
         <div className="nav-inner">
-          <a className="brand" href="#top" aria-label="FoxHound Bee home">
+          <Link className="brand" href="/" aria-label="FoxHound Bee home">
             <svg className="mark" viewBox="0 0 32 32" aria-hidden="true">
               <use href="#i-mark" />
             </svg>
             <span>FoxHound Bee</span>
-          </a>
+          </Link>
           <nav className="nav-links" id="navLinks" aria-label="Primary">
-            <a href="#top" data-nav="top">Overview</a>
-            <a href="#hives" data-nav="hives">Hives</a>
-            <a href="#harvest" data-nav="harvest">Harvest</a>
-            <a href="#journal" data-nav="journal">Journal</a>
-            <a href="#support" data-nav="support">Support</a>
+            <Link href="/harvest" data-nav="harvest">Harvest</Link>
+            <Link href="/hives" data-nav="hives">Hives</Link>
+            <Link href="/journal" data-nav="journal">Journal</Link>
+            <Link href="/#support" data-nav="support">Support</Link>
           </nav>
           <div className="nav-tools">
             <button className="icon-btn" id="searchBtn" aria-label="Search foxhound.co">
@@ -28,42 +28,33 @@ export default function Header() {
             </button>
           </div>
           <div className="popover" id="bagPop" role="dialog" aria-label="Shopping bag">
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "17px" }}>
+            <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "18px" }}>
               Your bag is empty.
             </p>
             <p className="small" style={{ marginTop: "6px" }}>
               The 2026 harvest is still in the extractor.
             </p>
-            <a className="btn btn--primary btn--sm" href="#harvest" style={{ marginTop: "14px" }}>
+            <Link className="btn btn--primary btn--sm" href="/harvest" style={{ marginTop: "14px" }}>
               Shop the harvest
-            </a>
+            </Link>
           </div>
         </div>
         <div className="flyout" id="flyout">
-          <a href="#top" data-nav="top">
-            Overview <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
-          </a>
-          <a href="#hives" data-nav="hives">
-            Hives <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
-          </a>
-          <a href="#harvest" data-nav="harvest">
+          <Link href="/harvest" data-nav="harvest">
             Harvest <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
-          </a>
-          <a href="#journal" data-nav="journal">
+          </Link>
+          <Link href="/hives" data-nav="hives">
+            Hives <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
+          </Link>
+          <Link href="/journal" data-nav="journal">
             Journal <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
-          </a>
-          <a href="#support" data-nav="support">
+          </Link>
+          <Link href="/#support" data-nav="support">
             Support <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
-          </a>
+          </Link>
         </div>
       </header>
 
-      <div className="announce">
-        <a href="#harvest">
-          Solstice Reserve is open for the season. Free shipping on crates over $60{" "}
-          <span className="arrow">&rsaquo;</span>
-        </a>
-      </div>
 
       <div className="overlay" id="searchOverlay">
         <div className="search-box">
@@ -81,3 +72,5 @@ export default function Header() {
     </>
   );
 }
+
+

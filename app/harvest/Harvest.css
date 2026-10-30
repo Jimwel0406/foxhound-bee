@@ -1,0 +1,28 @@
+.fh-harvest-page{scroll-behavior:smooth}
+.hv-opening{display:grid;grid-template-columns:1fr 1fr;gap:6%;padding-block:64px 72px;align-items:stretch}
+.hv-opening-copy{display:flex;flex-direction:column;align-items:flex-start;padding-block:12px}
+.fh-home.fh-harvest-page h1{font-size:clamp(76px,9vw,136px);line-height:.95;letter-spacing:-.065em;margin-bottom:32px}
+.fh-harvest-page .hv-opening-copy>p{max-width:400px;font-size:22px;line-height:1.45}
+.hv-opening-copy>.fh-link{margin-top:24px}
+.hv-season{display:flex;gap:24px;align-items:center;margin-top:auto;padding-top:56px;font-size:18px;line-height:1.4}
+.hv-season strong{font-family:var(--font-display);font-size:48px;letter-spacing:-.055em;line-height:1}
+.hv-opening-photo{overflow:hidden;min-height:610px;background:var(--surface-wash)}
+.hv-opening-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hv-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;padding-bottom:56px;scroll-margin-top:120px}
+.hv-index a{display:flex;align-items:center;gap:20px;border-top:1px solid var(--hairline);padding-top:24px;font-size:18px}
+.hv-index strong{font-family:var(--font-display);font-size:26px;letter-spacing:-.04em}.hv-index a>span:last-child{margin-left:auto;font-size:26px;color:var(--link)}
+.hv-story{display:grid;grid-template-columns:1.1fr 1fr;gap:10%;align-items:center;padding-block:64px;scroll-margin-top:100px}
+.hv-story-1{grid-template-columns:1fr 1.1fr}.hv-story-1 .hv-story-photo{order:2}
+.hv-story-photo{aspect-ratio:1;overflow:hidden;background:var(--surface-wash)}.hv-story-photo img{width:100%;height:100%;object-fit:cover}
+.hv-name{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-bottom:1px solid var(--hairline);padding-bottom:18px}
+.fh-harvest-page .hv-name h2{font-size:clamp(32px,3vw,44px)}.hv-name>span{font-size:24px;font-weight:700}
+.fh-harvest-page .hv-flower{font-size:18px;font-weight:700;margin-top:16px}
+.fh-harvest-page .hv-story-copy h3{font-size:clamp(48px,5vw,72px);white-space:pre-line;margin-block:40px 24px}
+.hv-story-copy>p:not(.hv-flower){font-size:20px;max-width:400px}
+.hv-comparison{margin-top:64px;padding-block:88px;background:var(--surface-dark);color:var(--on-dark);--fh-copy:var(--on-dark);scroll-margin-top:80px}
+.hv-compare-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:56px}.hv-compare-grid a{border-top:1px solid var(--hairline-dark);padding-top:24px}.hv-compare-grid h3{display:flex;justify-content:space-between;gap:20px}.hv-compare-grid h3 span{color:var(--link-soft)}.hv-compare-grid p{margin-block:16px 24px}.hv-compare-grid strong{font-size:24px}
+.hv-care{padding-block:112px;display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center}.fh-harvest-page .hv-care>div>p{font-size:22px;max-width:480px}
+.hv-index a:hover strong,.hv-compare-grid a:hover h3{text-decoration:underline;text-underline-offset:6px}
+.fh-harvest-page a:focus-visible{outline:3px solid var(--accent);outline-offset:6px}
+@media(max-width:1000px){.hv-opening{gap:32px}.hv-opening-photo{min-height:540px}.hv-story{gap:6%}.hv-index{gap:20px}.hv-index a{gap:12px}.hv-index strong{font-size:23px}}
+@media(max-width:700px){.hv-opening{grid-template-columns:1fr;padding-block:40px;gap:32px}.fh-home.fh-harvest-page h1{font-size:clamp(72px,17vw,100px);margin-bottom:24px}.fh-harvest-page .hv-opening-copy>p{font-size:20px}.hv-season{padding-top:32px}.hv-season strong{font-size:40px}.hv-opening-photo{min-height:0;aspect-ratio:4/3}.hv-index{grid-template-columns:1fr;gap:0;padding-bottom:24px}.hv-index a{padding-block:18px}.hv-index strong{font-size:26px}.hv-story,.hv-story-1{grid-template-columns:1fr;gap:32px;padding-block:32px 48px}.hv-story-1 .hv-story-photo{order:0}.fh-harvest-page .hv-story-copy h3{font-size:52px;margin-block:28px 20px}.hv-comparison{margin-top:24px;padding-block:56px}.hv-compare-grid{grid-template-columns:1fr;gap:32px;margin-top:36px}.hv-compare-grid p{margin-block:12px}.hv-care{grid-template-columns:1fr;gap:28px;padding-block:64px}.fh-harvest-page .hv-care>div>p{font-size:20px}}

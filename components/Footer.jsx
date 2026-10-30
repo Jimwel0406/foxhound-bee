@@ -1,107 +1,47 @@
-const COLUMNS = [
-  {
-    heading: "Shop",
-    links: [
-      ["All honey", "#harvest"],
-      ["Solstice Reserve", "#harvest"],
-      ["Spring No. 2", "#harvest"],
-      ["Vesper", "#harvest"],
-      ["The crate", "#harvest"],
-      ["Dippers & jar keys", "#harvest"],
-    ],
-  },
-  {
-    heading: "Hives",
-    links: [
-      ["HX-1 hive", "#hives"],
-      ["Nuc box", "#hives"],
-      ["Frame 12", "#hives"],
-      ["Hive Monitor", "#hives"],
-      ["Optics camera", "#hives"],
-      ["Smoker No. 4", "#hives"],
-      ["Spare parts", "#hives"],
-    ],
-  },
-  {
-    heading: "Services",
-    links: [
-      ["Pollination contracts", "#support"],
-      ["Orchard survey", "#support"],
-      ["Colony counts", "#support"],
-      ["Swarm collection", "#support"],
-      ["Extraction tours", "#support"],
-      ["Beekeeper apprenticeship", "#support"],
-    ],
-  },
-  {
-    heading: "Journal",
-    links: [
-      ["Latest episode", "#journal"],
-      ["Field notes", "#journal"],
-      ["Yield data", "#journal"],
-      ["Forage map", "#journal"],
-      ["The 2013 ledger", "#journal"],
-      ["Transcripts", "#journal"],
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      ["Our story", "#top"],
-      ["The sixteen yards", "#top"],
-      ["How we keep bees", "#top"],
-      ["Contact", "#support"],
-      ["Warranty", "#support"],
-      ["Shipping & returns", "#support"],
-      ["Careers", "#support"],
-      ["Press kit", "#support"],
-    ],
-  },
+import Link from "next/link";
+
+const ROWS = [
+  [["Harvest", "/harvest"], ["Hives", "/hives"], ["Journal", "/journal"]],
+  [["Our story", "/story"], null, ["Contact", "#support"]],
+];
+const POLICIES = [
+  ["Privacy", "/"],
+  ["Terms of use", "/"],
+  ["Shipping & returns", "#support"],
+  ["Warranty", "#support"],
 ];
 
 export default function Footer() {
   return (
     <footer className="foot" id="support">
-      <div className="wrap">
-        <div className="foot-legal">
-          <p>
-            1. Solstice Reserve is a single-extraction wildflower honey drawn from yards 04,
-            07 and 11 between 3 and 19 June 2026. Moisture content is printed on every label.
-            Crystallisation is normal and is not a defect; stand the jar in warm water below
-            40 &deg;C to reverse it. Free shipping applies to crates of $60 or more within
-            the continental region and excludes freighted hive orders.
-          </p>
-          <p>
-            2. HX-1 warranty covers joinery, finish and hardware for ten years from the date
-            of purchase, transferable once to a second owner, and is void if the body has been
-            planed, rebated or drilled. Monitor coverage is two years and includes one battery
-            replacement. Pollination contract terms, including drop dates, colony counts and
-            spray exclusions, are set out in a signed schedule issued before bloom.
-          </p>
-        </div>
-        <div className="foot-rule"></div>
-        <div className="foot-cols">
-          {COLUMNS.map((col) => (
-            <div key={col.heading}>
-              <h4>{col.heading}</h4>
-              <ul>
-                {col.links.map(([label, href]) => (
-                  <li key={label}>
-                    <a href={href}>{label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="foot-in">
+        <div className="foot-main">
+          <nav className="foot-comb" aria-label="Footer">
+            {ROWS.map((row, r) => (
+              <div className="foot-row" key={r}>
+                {row.map((item) =>
+                  item ? (
+                    <Link className="foot-cell" href={item[1]} key={item[0]}>{item[0]}</Link>
+                  ) : (
+                    <Link className="foot-cell foot-cell--mark" href="/" key="home" aria-label="FoxHound Bee home">
+                      <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-mark" /></svg>
+                    </Link>
+                  )
+                )}
+              </div>
+            ))}
+          </nav>
+          <div className="foot-say">
+            <h2>Find your way<br />around the comb.</h2>
+            <p>Questions about a hive or an order?<br />Pick a cell, or write to the keepers.</p>
+          </div>
         </div>
         <div className="foot-bottom">
-          <span>Copyright &copy; 2026 FoxHound Bee. All rights reserved.</span>
-          <a href="#top">Privacy</a>
-          <a href="#top">Terms of use</a>
-          <a href="#top">Sales policy</a>
-          <a href="#top">Legal</a>
-          <a href="#top">Site map</a>
-          <span style={{ marginLeft: "auto" }}>Cascade Foothills · Est. 2013</span>
+          <span>&copy; 2026 FoxHound Bee</span>
+          {POLICIES.map(([label, href]) => (
+            <Link href={href} key={label}>{label}</Link>
+          ))}
+          <span className="foot-place">Cascade Foothills · Est. 2013</span>
         </div>
       </div>
     </footer>

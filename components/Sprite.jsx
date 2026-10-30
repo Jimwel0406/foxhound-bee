@@ -33,12 +33,12 @@ export default function Sprite() {
     </symbol>
 
     <symbol id="i-search" viewBox="0 0 24 24">
-      <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" strokeWidth="2"/>
-      <path d="m15.5 15.5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M10.5 4l5.63 3.25v6.5L10.5 17l-5.63-3.25v-6.5z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+      <path d="M15.5 16.2 20.5 21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
     </symbol>
     <symbol id="i-bag" viewBox="0 0 24 24">
-      <path d="M6 8h12l1.2 12H4.8Z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-      <path d="M9 9V6.8a3 3 0 0 1 6 0V9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M5 8h14l-1 12.5H6zM9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M10.4 11l1.73 1v2l-1.73 1-1.73-1v-2zM13.86 11l1.73 1v2l-1.73 1-1.73-1v-2zM12.13 14l1.73 1v2l-1.73 1-1.73-1v-2z" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
     </symbol>
     <symbol id="i-menu" viewBox="0 0 24 24">
       <path d="M4 8h16M4 16h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>

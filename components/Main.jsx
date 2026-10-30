@@ -1,324 +1,132 @@
-const UNSPLASH = "https://images.unsplash.com";
+import Link from "next/link";
+import HomeMotion from "./HomeMotion";
+import "./Home.css";
 
-const PHOTOS = {
-  solsticeJar: `${UNSPLASH}/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=900&q=80`,
-  smoker: `${UNSPLASH}/photo-1781498269243-ca6119bd96a9?auto=format&fit=crop&w=800&q=80`,
-  comb: `${UNSPLASH}/photo-1570634433336-be7629414ce1?auto=format&fit=crop&w=800&q=80`,
-  crowdedHive: `${UNSPLASH}/photo-1702396304193-bb39891d9d02?auto=format&fit=crop&w=800&q=80`,
-  springJars: `${UNSPLASH}/photo-1572102329980-f9e3c4b955e1?auto=format&fit=crop&w=800&q=80`,
-  collage1: `${UNSPLASH}/photo-1748286206989-170a93a3223a?auto=format&fit=crop&w=500&q=75`,
-  collage2: `${UNSPLASH}/photo-1679923976613-86113e863b34?auto=format&fit=crop&w=500&q=75`,
-  collage3: `${UNSPLASH}/photo-1688940738708-5a59256ab294?auto=format&fit=crop&w=500&q=75`,
-  field1: `${UNSPLASH}/photo-1758522965330-21f181a3ce16?auto=format&fit=crop&w=700&q=80`,
-  field2: `${UNSPLASH}/photo-1758522965231-4d7dde21ae7b?auto=format&fit=crop&w=700&q=80`,
-  field3: `${UNSPLASH}/photo-1736578147818-ab483af93646?auto=format&fit=crop&w=700&q=80`,
-};
+const UNSPLASH = "https://images.unsplash.com";
+const photo = (id, width = 1000) => `${UNSPLASH}/photo-${id}?auto=format&fit=crop&w=${width}&q=90`;
+const hexPath = x => `M${x+20} 0L${x+40} 11.5V34.5L${x+20} 46L${x} 34.5V11.5Z`;
+const combRuns = Array.from({ length: 6 }, (_, r) => Array.from({ length: 6 }, (_, c) => hexPath((r * 6 + c) * 40)).join(""));
+
+const honey = [
+  { name: "Solstice", price: "$28", note: "Wildflower. Pressed once, never blended.", image: photo("1558642452-9d2a7deb7f62"), alt: "Golden honey dripping from a wooden dipper" },
+  { name: "Vesper", price: "$34", note: "Buckwheat. Dark, mineral, almost molasses.", image: "/img/vesper.jpg", alt: "Vesper buckwheat honey in a glass jar" },
+  { name: "Spring No. 2", price: "$26", note: "Apple bloom and clover. The pale one.", image: photo("1572102329980-f9e3c4b955e1"), alt: "Jars of pale spring honey" },
+];
+const tools = [
+  { name: "Hive Monitor", note: "Weight, weather, queen status.", image: "/img/hive-monitor.jpg", alt: "Brass-mounted hive weight sensor", href: "/hives" },
+  { name: "Smoker No. 4", price: "$96", note: "Brass and leather bellows.", image: photo("1781498269243-ca6119bd96a9"), alt: "Beekeeper operating a metal smoker", href: "/hives#smoker" },
+  { name: "Frame 12", note: "Wax foundation, no plastic.", image: photo("1570634433336-be7629414ce1"), alt: "Golden honeycomb", href: "/hives" },
+  { name: "Nuc Box", price: "$145", note: "Five frames and a laying queen.", image: photo("1702396304193-bb39891d9d02"), alt: "Honeybees gathered on a hive", href: "/hives" },
+];
+
+// Presets are chosen by element role (see HomeMotion.jsx): peers in a group share one preset and differ only by stagger.
+const cardMotion = [
+  { image: "iris", badge: "pop", title: "lines", note: "fade", link: "wipe-l" },
+  { image: "iris", badge: "pop", title: "lines", note: "fade", link: "wipe-l" },
+  { image: "iris", badge: "pop", title: "lines", note: "fade", link: "wipe-l" },
+];
+const tileMotion = ["shutter", "shutter", "shutter", "shutter"];
+const guideMotion = ["wipe-u", "wipe-u", "wipe-u", "wipe-u", "wipe-u"];
+const practiceMotion = ["pan-r", "pan-r", "pan-r"];
+
+function Arrow() { return <span aria-hidden="true">↗</span>; }
+function TextLink({ href, anim, children }) { return <Link className="fh-link" href={href} data-anim={anim}>{children}<Arrow /></Link>; }
 
 export default function Main() {
   return (
-    <main id="app">
-      <section className="page">
-        <div className="hero" id="top">
-          <div className="comb-bg"></div>
-          <div className="wrap stack">
-            <p className="eyebrow">New &mdash; 2026 Harvest</p>
-            <h1 className="h-xl" style={{ marginTop: "14px" }}>Solstice.</h1>
-            <p className="sub" style={{ marginTop: "18px" }}>
-              Single-extraction wildflower honey, pressed once and never blended.
-            </p>
-            <div className="btn-row">
-              <a className="btn btn--primary" href="#harvest">Buy &mdash; $28</a>
-              <a className="btn btn--outline" href="#harvest">Learn more</a>
-            </div>
-          </div>
-          <figure className="hero-art art-photo">
-            <img
-              src={PHOTOS.solsticeJar}
-              alt="A jar of Solstice wildflower honey with fresh comb"
-              fetchPriority="high"
-              width="900"
-              height="1200"
-            />
-          </figure>
+    <main id="app" className="fh-home" data-motion-home>
+      <HomeMotion />
+      <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: "absolute" }}>
+        <defs>
+          <clipPath id="fh-hex-clip" clipPathUnits="objectBoundingBox"><path d="M0.45 0.025Q0.5 0 0.55 0.025L0.95 0.225Q1 0.25 1 0.3L1 0.7Q1 0.75 0.95 0.775L0.55 0.975Q0.5 1 0.45 0.975L0.05 0.775Q0 0.75 0 0.7L0 0.3Q0 0.25 0.05 0.225Z" /></clipPath>
+        </defs>
+      </svg>
+      <section className="fh-hero" id="top" aria-labelledby="home-title">
+        <div className="fh-hero-photo" data-anim="focus" data-anim-delay="120">
+          <img src={photo("1558642452-9d2a7deb7f62", 2600)} alt="A wooden dipper lifted from golden wildflower honey" width="2600" height="1733" fetchPriority="high" />
         </div>
-
-        <div className="panel panel--light" id="hives">
-          <div className="stack wrap">
-            <p className="eyebrow">Hive Systems</p>
-            <h2 className="h-lg" style={{ marginTop: "14px" }}>HX-1.</h2>
-            <p className="sub" style={{ marginTop: "16px" }}>
-              Twenty frames of milled cedar, wired for a Monitor that never sleeps.
-            </p>
-            <div className="btn-row">
-              <a className="btn btn--primary" href="#hives">Buy &mdash; $420</a>
-              <a className="btn btn--outline" href="#hives">Learn more</a>
-            </div>
-          </div>
-          <figure className="band-art band-art--tall art-photo">
-            <img
-              src="/img/hx1-hive.jpg"
-              alt="The HX-1 cedar hive with the Hive Monitor clipped to its front"
-              width="1448"
-              height="1086"
-            />
-          </figure>
-        </div>
-
-        <div className="panel panel--dark on-dark" id="harvest">
-          <div className="comb-bg"></div>
-          <div className="stack wrap">
-            <p className="eyebrow">Late Season</p>
-            <h2 className="h-lg" style={{ marginTop: "14px" }}>
-              <em className="accent-word">Vesper</em>.
-            </h2>
-            <p className="sub" style={{ marginTop: "16px" }}>
-              Buckwheat honey, pulled after the first frost. Dark, mineral, almost molasses.
-            </p>
-            <div className="btn-row">
-              <a className="btn btn--light" href="#harvest">Buy &mdash; $34</a>
-              <a className="btn btn--outline-dark" href="#harvest">Learn more</a>
-            </div>
-          </div>
-          <figure className="band-art art-photo">
-            <img
-              src="/img/vesper.jpg"
-              alt="Vesper buckwheat honey, near-black in the jar"
-              width="1448"
-              height="1086"
-            />
-          </figure>
-        </div>
-
-        <div className="panel panel--wash">
-          <div className="stack wrap">
-            <p className="eyebrow">Field Instruments</p>
-            <h2 className="h-lg" style={{ marginTop: "14px" }}>Optics.</h2>
-            <p className="sub" style={{ marginTop: "16px" }}>
-              A lens that counts wings at the entrance and tells you when to open the box.
-            </p>
-            <div className="btn-row">
-              <a className="btn btn--primary" href="#hives">Buy &mdash; $189</a>
-              <a className="btn btn--outline" href="#hives">Learn more</a>
-            </div>
-          </div>
-          <figure className="band-art art-photo">
-            <img
-              src="/img/optics-entrance.jpg"
-              alt="The Optics camera watching bees at the hive entrance"
-              width="1445"
-              height="1088"
-            />
-          </figure>
-        </div>
-
-        <div className="bento">
-          <div className="panel panel--light panel--tight">
-            <div className="stack wrap">
-              <h3 className="h-md">Hive Monitor.</h3>
-              <p className="sub sub--muted" style={{ marginTop: "12px", fontSize: "clamp(16px,1.7vw,21px)" }}>
-                Weight, weather, and queen status. Logged every six minutes.
-              </p>
-              <div className="btn-row">
-                <a className="btn btn--outline btn--sm" href="#hives">Learn more</a>
-              </div>
-            </div>
-            <figure className="band-art art-photo">
-              <img
-                src="/img/hive-monitor.jpg"
-                alt="The Hive Monitor, a brass-mounted hive weight sensor"
-                width="1254"
-                height="1254"
-              />
-            </figure>
-          </div>
-
-          <div className="panel panel--dark panel--tight on-dark">
-            <div className="stack wrap">
-              <h3 className="h-md">Smoker No. 4.</h3>
-              <p className="sub" style={{ marginTop: "12px", fontSize: "clamp(16px,1.7vw,21px)" }}>
-                Brass, stainless, leather bellows. Fired a thousand times and counting.
-              </p>
-              <div className="btn-row">
-                <a className="btn btn--light btn--sm" href="#harvest">Buy &mdash; $96</a>
-              </div>
-            </div>
-            <figure className="band-art art-photo">
-              <img
-                src={PHOTOS.smoker}
-                alt="Beekeeper in protective suit operating a metal bee smoker"
-                loading="lazy"
-                width="800"
-                height="600"
-              />
-            </figure>
-          </div>
-
-          <div className="panel panel--light panel--tight">
-            <div className="stack wrap">
-              <h3 className="h-md">Frame 12.</h3>
-              <p className="sub sub--muted" style={{ marginTop: "12px", fontSize: "clamp(16px,1.7vw,21px)" }}>
-                Wax foundation cured in our own hives. No plastic, no coatings.
-              </p>
-              <div className="btn-row">
-                <a className="btn btn--outline btn--sm" href="#hives">Learn more</a>
-              </div>
-            </div>
-            <figure className="band-art art-photo">
-              <img
-                src={PHOTOS.comb}
-                alt="Honeycomb dripping with golden honey"
-                loading="lazy"
-                width="800"
-                height="600"
-              />
-            </figure>
-          </div>
-
-          <div className="panel panel--dark panel--tight on-dark">
-            <div className="stack wrap">
-              <h3 className="h-md">Nuc Box.</h3>
-              <p className="sub" style={{ marginTop: "12px", fontSize: "clamp(16px,1.7vw,21px)" }}>
-                Five frames, one laying queen, ready to move in by the weekend.
-              </p>
-              <div className="btn-row">
-                <a className="btn btn--light btn--sm" href="#hives">Buy &mdash; $145</a>
-              </div>
-            </div>
-            <figure className="band-art art-photo">
-              <img
-                src={PHOTOS.crowdedHive}
-                alt="Close-up of a hive crowded with bees"
-                loading="lazy"
-                width="800"
-                height="600"
-              />
-            </figure>
-          </div>
-
-          <div className="panel panel--light panel--tight">
-            <div className="stack wrap">
-              <h3 className="h-md">Field Journal.</h3>
-              <p className="sub sub--muted" style={{ marginTop: "12px", fontSize: "clamp(16px,1.7vw,21px)" }}>
-                Every inspection, weight shift, and robbing event &mdash; mapped and dated.
-              </p>
-              <div className="btn-row">
-                <a className="btn btn--outline btn--sm" href="#journal">Read the journal</a>
-              </div>
-            </div>
-            <div className="collage" aria-hidden="true">
-              <i><img src={PHOTOS.collage1} alt="" loading="lazy" width="500" height="667" /></i>
-              <i><img src={PHOTOS.collage2} alt="" loading="lazy" width="500" height="667" /></i>
-              <i><img src={PHOTOS.collage3} alt="" loading="lazy" width="500" height="667" /></i>
-            </div>
-          </div>
-
-          <div className="panel panel--dark panel--tight on-dark">
-            <div className="stack wrap">
-              <h3 className="h-md">Spring No. 2.</h3>
-              <p className="sub" style={{ marginTop: "12px", fontSize: "clamp(16px,1.7vw,21px)" }}>
-                The pale one. Apple bloom and clover, pulled in the first week of May.
-              </p>
-              <div className="btn-row">
-                <a className="btn btn--light btn--sm" href="#harvest">Buy &mdash; $26</a>
-              </div>
-            </div>
-            <figure className="band-art art-photo">
-              <img
-                src={PHOTOS.springJars}
-                alt="Jars of pale spring honey"
-                loading="lazy"
-                width="800"
-                height="600"
-              />
-            </figure>
+        <div className="fh-hero-shade" />
+        <div className="fh-shell fh-hero-inner">
+          <div className="fh-hero-copy">
+            <h1 id="home-title" data-anim="lines" data-anim-delay="500"><span className="fh-title-line"><span>Keepers of</span></span><span className="fh-title-line"><span>the comb.</span></span></h1>
+            <Link className="btn btn--primary fh-button" href="/harvest" data-anim="pop" data-anim-delay="800">Explore the harvest <Arrow /></Link>
           </div>
         </div>
+      </section>
 
-        <div className="field-band">
-          <div className="section-head" style={{ marginBottom: "26px" }}>
-            <p className="eyebrow">In the field</p>
-            <h2 className="h-md" style={{ marginTop: "12px" }}>Keepers, at work.</h2>
-          </div>
-          <div className="wrap">
-            <div className="field-grid">
-              <figure>
-                <img
-                  src={PHOTOS.field1}
-                  alt="Beekeeper in a protective suit working beside hives in a field"
-                  loading="lazy"
-                  width="700"
-                  height="875"
-                />
-              </figure>
-              <figure>
-                <img
-                  src={PHOTOS.field2}
-                  alt="Beekeeper holding up a frame heavy with bees"
-                  loading="lazy"
-                  width="700"
-                  height="875"
-                />
-              </figure>
-              <figure>
-                <img
-                  src={PHOTOS.field3}
-                  alt="Beekeeper inspecting a honeycomb frame in the apiary"
-                  loading="lazy"
-                  width="700"
-                  height="875"
-                />
-              </figure>
-            </div>
+      <section className="fh-shelf" id="harvest" aria-labelledby="harvest-title">
+        <div className="fh-shell fh-section">
+          <h2 id="harvest-title" className="fh-shelf-title" data-anim="lines"><span className="fh-title-line"><span>A season.</span></span><span className="fh-title-line"><span>Its own character.</span></span></h2>
+          <svg className="fh-comb" aria-hidden="true" data-anim="draw" viewBox="0 0 1440 46" preserveAspectRatio="xMinYMid slice">{combRuns.map((d, i) => <path key={i} d={d} />)}</svg>
+          <div className="fh-hex-grid">
+            {honey.map((item, i) => { const m = cardMotion[i]; return <article key={item.name} data-anim-step={i}>
+              <div className="fh-hex-wrap">
+                <Link className="fh-photo-link fh-hex" href="/harvest" aria-label={`Explore ${item.name}`}><img src={item.image} alt={item.alt} width="1000" height="1100" loading="lazy" data-anim={m.image} data-anim-origin={m.origin} /></Link>
+                <b className="fh-hex-badge" data-anim={m.badge} data-anim-delay="500">{item.price}</b>
+              </div>
+              <h3 data-anim={m.title}>{item.name}</h3><p data-anim={m.note}>{item.note}</p><TextLink href="/harvest" anim={m.link}>Explore {item.name}</TextLink>
+            </article>; })}
           </div>
         </div>
+      </section>
 
-        <div className="rail-head" id="journal">
-          <div className="section-head">
-            <p className="eyebrow">FoxHound Stories</p>
-            <h2 className="h-lg" style={{ marginTop: "12px" }}>Field Journal.</h2>
-            <p className="sub sub--muted" style={{ marginTop: "14px", fontSize: "clamp(16px,1.8vw,21px)" }}>
-              Films, inspections, and long nights at the out-apiary.
-            </p>
+      <section className="fh-hive" id="hives" aria-labelledby="hive-title">
+        <div className="fh-hive-image" data-anim="wipe-l"><img src="/img/hx1-hive.jpg" alt="HX-1 cedar hive with its Hive Monitor attached" width="1448" height="1086" loading="lazy" /></div>
+        <div className="fh-hive-copy">
+          <h2 id="hive-title" data-anim="lines">Meet<br />the HX-1.</h2>
+          <p className="fh-large-copy" data-anim="words">Twenty frames of milled cedar, wired for a Monitor that never sleeps.</p>
+          <Link className="btn btn--light fh-button" href="/hives" data-anim="pop">Explore HX-1 — $420 <Arrow /></Link>
+        </div>
+      </section>
+
+      <section className="fh-bench" aria-labelledby="tools-title">
+        <div className="fh-shell fh-section">
+          <div className="fh-bench-grid">
+            <div className="fh-bench-head"><h2 id="tools-title" data-anim="lines">Know your<br />hives.</h2></div>
+            <Link className="fh-tile fh-tile-big" href="/hives#optics" data-anim="shutter" data-anim-step="2">
+              <img src="/img/optics-entrance.jpg" alt="The Optics camera observing the hive entrance" width="1445" height="1088" loading="lazy" />
+              <div className="fh-tile-ov" data-anim="rise" data-anim-delay="500"><h3>Optics.</h3><p>Counts wings at the entrance.</p><span className="fh-tile-go">Explore Optics <Arrow /></span></div>
+            </Link>
+            {tools.map((item, i) => <Link className="fh-tile" href={item.href} key={item.name} data-anim={tileMotion[i]} data-anim-step={[0, 1, 3, 4][i]}>
+              <img src={item.image} alt={item.alt} width="800" height="800" loading="lazy" />
+              <div className="fh-tile-ov" data-anim="rise" data-anim-delay="500"><div className="fh-product-title"><h3>{item.name}</h3></div><p>{item.note}</p><span className="fh-tile-go">Explore <Arrow /></span></div>
+            </Link>)}
           </div>
         </div>
+      </section>
 
-        <EpisodesRail />
-        <GuidesRail />
-
-        <div className="copy-band">
-          <div className="wrap">
-            <div className="copy-grid">
-              <div className="copy-block">
-                <h3 className="h-sm">What comes with the HX-1.</h3>
-                <ul>
-                  <li data-n="01">Deep brood body, twenty frames, wired and waxed</li>
-                  <li data-n="02">Telescoping lid with a ventilated crown board</li>
-                  <li data-n="03">Monitor cradle, load cells pre-calibrated</li>
-                  <li data-n="04">Entrance reducer, mouse guard, robber screen</li>
-                  <li data-n="05">Ten-year cedar warranty, transferable once</li>
-                </ul>
-                <p className="lede">
-                  Every HX-1 leaves the shop assembled, squared, and signed by the maker.
-                  Nothing arrives in a flat pack, and nothing needs a second pair of hands to
-                  put together.
-                </p>
-              </div>
-              <div className="copy-block">
-                <h3 className="h-sm">How we keep bees.</h3>
-                <ol>
-                  <li data-n="01">One yard, one queen line &mdash; no open mating, no surprises</li>
-                  <li data-n="02">We feed nothing but our own capped stores</li>
-                  <li data-n="03">Mite counts weekly from June, always written down</li>
-                  <li data-n="04">Never a chemical treatment inside a honey super</li>
-                  <li data-n="05">Split early, combine late, interfered with rarely</li>
-                </ol>
-                <p className="lede">
-                  Sixteen yards across three valleys, all within an hour of the extraction
-                  house. Short haul means warm frames and a cleaner pour.
-                </p>
-              </div>
-            </div>
+      <section className="fh-field" aria-labelledby="keepers-title">
+        <div className="fh-field-band">
+          <div className="fh-field-photo" data-anim="zoom"><img src={photo("1758522965330-21f181a3ce16", 1400)} alt="A beekeeper working beside hives in a field" width="1400" height="1750" loading="lazy" /></div>
+          <div className="fh-field-shade" />
+          <div className="fh-shell fh-field-in"><h2 id="keepers-title" data-anim="lines" data-anim-delay="250">Keepers,<br />at work.</h2><p className="fh-large-copy" data-anim="drift" data-anim-delay="500">Sixteen yards. Three valleys. All within an hour of the extraction house.</p></div>
+        </div>
+        <div className="fh-shell">
+          <div className="fh-field-panel" data-anim="wipe-u">
+            <p data-anim="burst" data-anim-delay="350">Short haul, warm frames, cleaner pour.</p>
+            <ul>
+              <li data-anim={practiceMotion[0]} data-anim-step="0" data-anim-delay="450"><svg className="fh-field-mark" viewBox="0 0 40 40" aria-hidden="true" data-anim="draw" data-anim-delay="700"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" /><g transform="translate(8 8)" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"><path d="M6 6v12M10 6v12M14 6v12M18 6v12M4 16 20 8" /></g></svg><p>Mite counts weekly from June, always written down.</p></li>
+              <li data-anim={practiceMotion[1]} data-anim-step="1" data-anim-delay="450"><svg className="fh-field-mark" viewBox="0 0 40 40" aria-hidden="true" data-anim="draw" data-anim-delay="700"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" /><g transform="translate(8 8)" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"><path d="M12 4c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 10.5 9 8 12 4Z" /><path d="M5 5l14 14" /></g></svg><p>Never a chemical treatment inside a honey super.</p></li>
+              <li data-anim={practiceMotion[2]} data-anim-step="2" data-anim-delay="450"><svg className="fh-field-mark" viewBox="0 0 40 40" aria-hidden="true" data-anim="draw" data-anim-delay="700"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" /><g transform="translate(8 8)" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"><path d="M12 4v6M12 10 6 16M12 10l6 6M6 16v4M18 16v4" /></g></svg><p>Split early, combine late, interfered with rarely.</p></li>
+            </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="fh-journal" id="journal" aria-labelledby="journal-title">
+        <div className="fh-shell fh-section">
+          <div className="fh-section-head"><h2 id="journal-title" data-anim="lines">Field Journal.</h2></div>
+          <article className="fh-screen" data-anim="iris" data-anim-origin="82% 50%">
+            <div className="fh-perf" aria-hidden="true" data-anim="wipe-l" data-anim-delay="500" />
+            <div className="fh-screen-frame">
+              <img src={EPISODES[0].img} alt="The landscape around the North Ridge apiary" width="1400" height="788" loading="lazy" />
+              <div className="fh-screen-shade" aria-hidden="true" />
+              <Link className="fh-play" href="/journal" aria-label={`Watch ${EPISODES[0].title}`} data-anim="pop" data-anim-delay="700"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z" /></svg></Link>
+              <div className="fh-screen-cap"><p className="fh-meta" data-anim="typewriter" data-anim-delay="650">{EPISODES[0].kicker}</p><h3 data-anim="lines" data-anim-delay="800">{EPISODES[0].title}</h3><p data-anim="blur" data-anim-delay="1000">{EPISODES[0].body}</p><Link className="fh-screen-btn" href="/journal" data-anim="rise" data-anim-delay="1150">Watch the film <Arrow /></Link></div>
+            </div>
+            <div className="fh-perf" aria-hidden="true" data-anim="wipe-r" data-anim-delay="500" />
+          </article>
+          <nav className="fh-guides" aria-label="Field guides">{GUIDES.map((item, i) => <Link key={item.title} href="/journal" data-anim={guideMotion[i]} data-anim-step={i} style={{ backgroundImage: `url(${item.img})` }}><span className="fh-guide-v" aria-hidden="true">{item.title}</span><span className="fh-guide-in"><span>{item.kicker}</span><strong>{item.title}</strong></span><span className="fh-guide-arrow" aria-hidden="true">↗</span></Link>)}</nav>
         </div>
       </section>
     </main>
@@ -338,162 +146,43 @@ const EPISODES = [
     btn: "btn--primary",
     stencil: true,
   },
-  {
-    bg: "#5A4632",
-    img: `${UNSPLASH}/photo-1745742902043-f2f085a87c83?auto=format&fit=crop&w=900&q=80`,
-    imgW: 900,
-    imgH: 731,
-    kicker: "Episode 11 · 9 min",
-    title: "Valley Floor",
-    body: null,
-    btn: "btn--light",
-  },
-  {
-    bg: "#1F1A14",
-    img: `${UNSPLASH}/photo-1749628523016-c33a7ecffa2a?auto=format&fit=crop&w=900&q=80`,
-    imgW: 900,
-    imgH: 731,
-    kicker: "Episode 10 · 7 min",
-    title: "First Frost",
-    body: null,
-    btn: "btn--light",
-    noScrim: true,
-  },
-  {
-    bg: "#8A7350",
-    img: `${UNSPLASH}/photo-1748286206989-170a93a3223a?auto=format&fit=crop&w=900&q=80`,
-    imgW: 900,
-    imgH: 731,
-    kicker: "Episode 09 · 12 min",
-    title: "Queen Cells",
-    body: null,
-    btn: "btn--light",
-    noScrim: true,
-  },
-  {
-    bg: "#2E2A22",
-    img: `${UNSPLASH}/photo-1702396304193-bb39891d9d02?auto=format&fit=crop&w=900&q=80`,
-    imgW: 900,
-    imgH: 731,
-    kicker: "Episode 08 · 6 min",
-    title: "The Nuc Yard",
-    body: null,
-    btn: "btn--light",
-    noScrim: true,
-  },
 ];
 
-function EpisodesRail() {
-  return (
-    <div className="rail-wrap">
-      <div className="rail" tabIndex={0} role="region" aria-label="Episodes">
-        <div className="rail-track">
-          {EPISODES.map((e) => (
-            <a
-              key={e.title}
-              className={e.feature ? "tile tile--feature" : "tile tile--sm"}
-              href="#journal"
-              style={e.bg ? { background: e.bg } : undefined}
-            >
-              <img
-                className="tile-art"
-                src={e.img}
-                alt=""
-                loading="lazy"
-                width={e.imgW}
-                height={e.imgH}
-              />
-              <span className="tile-vignette"></span>
-              {!e.noScrim && <span className="tile-scrim"></span>}
-              <span className="tile-copy">
-                <span className="kicker">{e.kicker}</span>
-                <h3 className={e.stencil ? "stencil" : undefined}>{e.title}</h3>
-                {e.body && <p>{e.body}</p>}
-                <span className={`btn ${e.btn} btn--sm`}>Watch</span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-      <button className="rail-nav rail-nav--prev" type="button" aria-label="Scroll episodes back" disabled>
-        <svg viewBox="0 0 24 24" aria-hidden="true" style={{ transform: "rotate(180deg)" }}>
-          <use href="#i-chev" />
-        </svg>
-      </button>
-      <button className="rail-nav rail-nav--next" type="button" aria-label="Scroll episodes forward">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev" /></svg>
-      </button>
-    </div>
-  );
-}
 
 const GUIDES = [
   {
     bg: "#3B2E20",
-    img: `${UNSPLASH}/photo-1573697610008-4c72b4e9508f?auto=format&fit=crop&w=600&q=75`,
+    img: `${UNSPLASH}/photo-1573697610008-4c72b4e9508f?auto=format&fit=crop&w=900&q=75`,
     kicker: "Guide",
     title: "Reading a frame",
     whiteMark: false,
   },
   {
     bg: "#5A4632",
-    img: `${UNSPLASH}/photo-1749628523016-c33a7ecffa2a?auto=format&fit=crop&w=600&q=75`,
+    img: `${UNSPLASH}/photo-1749628523016-c33a7ecffa2a?auto=format&fit=crop&w=900&q=75`,
     kicker: "Field note",
     title: "First frost",
     whiteMark: false,
   },
   {
     bg: "#1F1A14",
-    img: `${UNSPLASH}/photo-1503040421714-b569d90342cb?auto=format&fit=crop&w=600&q=75`,
+    img: `${UNSPLASH}/photo-1503040421714-b569d90342cb?auto=format&fit=crop&w=900&q=75`,
     kicker: "Data",
     title: "Yield curve",
     whiteMark: false,
   },
   {
     bg: "#8A7350",
-    img: `${UNSPLASH}/photo-1727120279660-5c28b8461609?auto=format&fit=crop&w=600&q=75`,
+    img: `${UNSPLASH}/photo-1727120279660-5c28b8461609?auto=format&fit=crop&w=900&q=75`,
     kicker: "Species",
     title: "Forage map",
     whiteMark: true,
   },
   {
     bg: "#2E2A22",
-    img: `${UNSPLASH}/photo-1691567116139-6b60b78c595b?auto=format&fit=crop&w=600&q=75`,
+    img: `${UNSPLASH}/photo-1691567116139-6b60b78c595b?auto=format&fit=crop&w=900&q=75`,
     kicker: "Archive",
     title: "2013 ledger",
     whiteMark: false,
   },
 ];
-
-function GuidesRail() {
-  return (
-    <div className="rail-row2">
-      {GUIDES.map((g) => (
-        <a key={g.title} className="tile" href="#journal" style={{ background: g.bg }}>
-          <img
-            className="tile-art"
-            src={g.img}
-            alt=""
-            loading="lazy"
-            width="600"
-            height="673"
-          />
-          <span className="tile-vignette"></span>
-          <svg
-            className="tile-mark"
-            viewBox="0 0 32 32"
-            aria-hidden="true"
-            style={g.whiteMark ? { color: "#fff" } : undefined}
-          >
-            <use href="#i-mark" />
-          </svg>
-          <span className="tile-copy">
-            <span className="kicker">{g.kicker}</span>
-            <h3>{g.title}</h3>
-            <span className="btn btn--light btn--sm">Open</span>
-          </span>
-        </a>
-      ))}
-    </div>
-  );
-}

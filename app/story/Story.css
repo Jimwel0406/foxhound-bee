@@ -1,0 +1,297 @@
+.fh-story-page .st-opening{text-align:center;padding-block:88px 70px;min-height:620px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.fh-home.fh-story-page h1{font-size:clamp(72px,8vw,116px);line-height:.98;letter-spacing:-.06em}
+.fh-story-page .st-opening>p{font-size:22px;line-height:1.5;margin-top:30px;font-weight:500}
+.st-opening .fh-link{margin-top:28px}
+.st-landscape{height:clamp(440px,53vw,760px);overflow:hidden}
+.st-landscape img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.st-yards{padding-block:112px;display:grid;grid-template-columns:1.4fr 1fr;gap:10%}
+.fh-story-page .st-yards p{font-size:22px;max-width:540px;margin-top:32px}
+.st-record>div{display:flex;align-items:baseline;justify-content:space-between;padding-block:18px;border-bottom:1px solid var(--hairline)}
+.st-record>div:first-child{padding-top:0}.st-record dt{font-size:18px;font-weight:600}.st-record dd{font-family:var(--font-display);font-size:72px;line-height:1.15;font-weight:700;letter-spacing:-.06em}
+.st-practices{padding-block:100px;background:var(--surface-dark);color:var(--on-dark);--fh-copy:var(--on-dark)}
+.st-practice-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px}
+.fh-story-page .st-practice-head p{font-size:20px;max-width:360px}
+.st-practice-list article{display:grid;grid-template-columns:72px 1.1fr 1fr;gap:32px;align-items:baseline;padding-block:36px;border-top:1px solid var(--hairline-dark)}
+.st-number{font-size:18px;font-weight:700}.fh-story-page .st-practice-list h3{font-size:clamp(30px,3vw,42px);max-width:440px}.fh-story-page .st-practice-list p{font-size:20px;max-width:400px}
+.st-last{padding-block:112px;display:grid;grid-template-columns:1fr 1fr;gap:9%;align-items:center}.st-comb{aspect-ratio:1;overflow:hidden}.st-comb img{width:100%;height:100%;object-fit:cover}.st-last-copy h2{margin-bottom:30px}.fh-story-page .st-last-copy p{font-size:22px;max-width:430px;margin-bottom:22px}.st-last-copy .fh-link{display:flex;max-width:350px}
+.fh-story-page a:focus-visible{outline:3px solid var(--accent);outline-offset:6px}
+@media(max-width:1000px){.st-yards{gap:6%}.st-record dd{font-size:64px}.st-practice-list article{grid-template-columns:48px 1fr 1fr;gap:24px}.st-last{gap:6%}}
+@media(max-width:700px){.fh-story-page .st-opening{padding-block:64px 52px;min-height:530px}.fh-home.fh-story-page h1{font-size:clamp(60px,15vw,84px)}.fh-story-page .st-opening>p{font-size:20px;margin-top:24px}.st-landscape{height:420px}.st-yards{grid-template-columns:1fr;gap:40px;padding-block:64px}.fh-story-page .st-yards p{font-size:20px;margin-top:24px}.st-record dd{font-size:64px}.st-practices{padding-block:64px}.st-practice-head{display:block;margin-bottom:40px}.fh-story-page .st-practice-head p{margin-top:24px;font-size:18px}.st-practice-list article{grid-template-columns:36px 1fr;gap:16px;padding-block:28px}.st-practice-list p{grid-column:2}.fh-story-page .st-practice-list h3{font-size:32px}.fh-story-page .st-practice-list p{font-size:18px}.st-last{grid-template-columns:1fr;gap:36px;padding-block:64px}.fh-story-page .st-last-copy p{font-size:20px}}
+/* Story page: turn the yard facts into a visible field record and practices into illustrated cards. */
+.st-landscape img{object-position:center 58%}
+.st-yards{width:100%;padding-block:clamp(80px,9vw,128px);background:var(--surface-wash)}
+.st-yards-inner{display:grid;gap:clamp(48px,6vw,78px)}
+.st-yards-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);align-items:end;gap:clamp(32px,7vw,96px)}
+.fh-story-page .st-yards h2{font-size:clamp(48px,6.4vw,88px);line-height:.98;max-width:13ch}
+.fh-story-page .st-yards p{font-size:22px;line-height:1.48;margin:0 0 6px;max-width:440px;font-weight:600}
+.st-record{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;position:relative}
+.st-record>div{min-height:210px;padding:24px 28px 28px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;background:rgba(255,255,255,.66);border:0;border-top:2px solid var(--text-primary);position:relative}
+.st-record dt{display:flex;align-items:center;gap:14px;font-size:20px;font-weight:700}
+.st-record dt span{font-size:18px;font-weight:700;color:var(--link)}
+.st-record dd{font-size:clamp(72px,8vw,112px);line-height:.9;letter-spacing:-.075em;font-weight:700}
+.st-practices{position:relative;overflow:clip;padding-block:clamp(84px,9vw,128px)}
+.st-practice-head{align-items:flex-end;margin-bottom:clamp(48px,6vw,76px)}
+.fh-story-page .st-practice-head h2{font-size:clamp(64px,8vw,108px);line-height:.9;max-width:8ch}
+.fh-story-page .st-practice-head p{font-size:22px;line-height:1.45;max-width:390px;padding-left:22px;border-left:2px solid var(--link-soft);color:var(--on-dark)}
+.st-practice-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.st-practice-card{display:flex;flex-direction:column;min-width:0;padding:14px 14px 28px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-top:1px solid rgba(255,255,255,.35);transition:background-color .35s ease,transform .45s cubic-bezier(.18,.72,.24,1)}
+.st-practice-card:hover{transform:translateY(-6px);background-color:rgba(255,255,255,.06)}
+.st-practice-art{height:196px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(120% 100% at 50% 100%,rgba(194,65,12,.25),transparent 70%),#211c16}
+.st-practice-art::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:20px 20px;opacity:.3;mask-image:linear-gradient(120deg,transparent,black)}
+.st-practice-art>span{position:absolute;left:18px;top:14px;font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--link-soft);z-index:1}
+.st-practice-art svg{width:min(210px,72%);height:auto;overflow:visible;z-index:1;transition:transform .6s cubic-bezier(.18,.72,.24,1)}
+.st-practice-card:hover .st-practice-art svg{transform:scale(1.08)}
+.st-art-lines{fill:none;stroke:rgba(255,255,255,.75);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.st-art-accent{fill:none;stroke:#FF9E5E;stroke-width:2.5}.st-art-accent-line{fill:none;stroke:#FF9E5E;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.st-art-point{fill:#FF9E5E}
+.st-practice-card-copy{padding:24px 10px 0;display:flex;flex:1;flex-direction:column;gap:14px}
+.fh-story-page .st-practice-card h3{font-size:clamp(28px,2.65vw,38px);line-height:1.08;letter-spacing:-.045em}
+.fh-story-page .st-practice-card p{font-size:20px;line-height:1.5;color:var(--on-dark)}
+@media(max-width:1000px){.st-record>div{padding-inline:20px}.st-practice-list{gap:12px}.st-practice-card{padding-inline:10px}.fh-story-page .st-practice-card h3{font-size:30px}}
+@media(max-width:700px){.st-landscape{height:min(120vw,520px)}.st-landscape img{object-position:74% 58%}.st-yards{padding-block:72px}.st-yards-inner{gap:36px}.st-yards-intro{grid-template-columns:1fr;gap:22px}.fh-story-page .st-yards h2{font-size:clamp(48px,12vw,68px)}.fh-story-page .st-yards p{font-size:20px;line-height:1.5}.st-record{grid-template-columns:1fr;gap:0}.st-record>div{min-height:0;flex-direction:row-reverse;align-items:center;padding:20px 8px;background:transparent;border-top:1px solid var(--hairline)}.st-record>div:last-child{border-bottom:1px solid var(--hairline)}.st-record dt{font-size:20px}.st-record dd{font-size:clamp(56px,15vw,72px)}.st-practices{padding-block:72px}.st-practice-head{display:grid;gap:24px;margin-bottom:36px}.fh-story-page .st-practice-head h2{font-size:clamp(60px,14vw,82px);max-width:10ch}.fh-story-page .st-practice-head p{margin:0;font-size:20px}.st-practice-list{grid-template-columns:1fr;gap:16px}.st-practice-card{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(0,1.3fr);gap:18px;padding:12px 14px 18px;align-items:center}.st-practice-art{height:150px}.st-practice-card-copy{padding:10px 0;gap:10px}.fh-story-page .st-practice-card h3{font-size:30px}.fh-story-page .st-practice-card p{font-size:18px;line-height:1.45}}
+@media(prefers-reduced-motion:reduce){.st-practice-card,.st-practice-art svg{transition:none}}
+
+/* Story narrative redesign: oversized yard record and a photographic practice spread. */
+.st-yards{display:block}
+.st-yards-inner,.st-yards-intro,.st-practice-layout,.st-practice-list{min-width:0}
+.st-yards-inner{grid-template-columns:1fr;gap:0}
+.st-yards-intro{grid-template-columns:1fr;align-items:end;gap:clamp(24px,3vw,40px);margin-bottom:clamp(56px,8vw,112px)}
+.fh-story-page .st-yards h2{font-size:clamp(68px,8vw,112px);line-height:.91;max-width:none;letter-spacing:-.065em}
+.fh-story-page .st-yards p{justify-self:end;max-width:540px;margin:0 0 7px;padding-left:24px;border-left:3px solid var(--accent);font-size:clamp(21px,1.7vw,24px);font-weight:600;line-height:1.45}
+.st-yard-ledger{display:grid;grid-template-columns:1.35fr .8fr 1.1fr;align-items:stretch;gap:clamp(22px,4vw,58px);border-top:1px solid rgba(26,22,17,.32);padding-top:22px}
+.st-yard-ledger>div{min-width:0;min-height:220px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:22px 0 8px;border:0;background:transparent}
+.st-yard-ledger dt{font-size:22px;font-weight:700;line-height:1.2}
+.st-yard-ledger dd{font-family:var(--font-display);font-size:clamp(82px,11vw,148px);line-height:.82;letter-spacing:-.085em;font-weight:700}
+.st-yard-ledger .st-yard-lead{min-height:280px;justify-content:space-between;padding:22px 30px 28px;background:var(--accent);color:#fff;border:0}
+.st-yard-ledger .st-yard-lead dd{font-size:clamp(168px,21vw,280px);letter-spacing:-.11em;line-height:.72}
+.st-yard-ledger>div:not(.st-yard-lead){border-bottom:1px solid rgba(26,22,17,.32)}
+.st-practices{padding-block:clamp(88px,10vw,144px)}
+.st-practice-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);align-items:end;gap:clamp(40px,8vw,120px);margin-bottom:clamp(48px,6vw,76px)}
+.fh-story-page .st-practice-head h2{font-size:clamp(72px,9vw,120px);line-height:.83;max-width:none;letter-spacing:-.075em}
+.fh-story-page .st-practice-head p{max-width:430px;margin:0 0 6px;padding:0 0 0 26px;border-left:3px solid var(--link-soft);font-size:clamp(21px,1.7vw,24px);font-weight:600;line-height:1.45;color:var(--on-dark)}
+.st-practice-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5.5vw,80px);align-items:stretch}
+.st-practice-photo{min-height:600px;aspect-ratio:4/5;overflow:hidden;background:#29231b}
+.st-practice-photo img{width:100%;height:100%;object-fit:cover;object-position:47% center}
+.st-practice-list{display:flex;flex-direction:column;justify-content:center}
+.st-practice-list .st-practice-card{display:grid;grid-template-columns:58px minmax(0,1fr);align-items:start;gap:clamp(18px,2.2vw,32px);padding:clamp(26px,3.1vw,42px) 0;background:none;border-top:1px solid var(--hairline-dark);transform:none}
+.st-practice-list .st-practice-card:last-child{border-bottom:1px solid var(--hairline-dark)}
+.st-practice-list .st-practice-card:hover{background:none;transform:none}
+.st-practice-index{padding-top:5px;font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1;color:var(--link-soft)}
+.st-practice-card-copy{padding:0;gap:12px}
+.fh-story-page .st-practice-card h3{max-width:none;font-size:clamp(30px,3vw,42px);line-height:1.05;letter-spacing:-.05em}
+.fh-story-page .st-practice-card p{max-width:490px;font-size:20px;line-height:1.48;font-weight:500;color:var(--on-dark)}
+@media(max-width:1000px){
+  .st-yards-intro{grid-template-columns:1fr;gap:30px}
+  .st-yard-ledger{grid-template-columns:1.1fr .8fr 1fr;gap:22px}
+  .st-yard-ledger .st-yard-lead{padding-inline:22px}
+  .st-practice-head{grid-template-columns:minmax(0,1fr) minmax(260px,.8fr);gap:40px}
+  .st-practice-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:32px}
+  .st-practice-photo{min-height:520px}
+}
+@media(max-width:700px){
+  .st-yards{padding-block:72px}
+  .st-yards-inner{gap:0}
+  .st-yards-intro{grid-template-columns:1fr;gap:24px;margin-bottom:44px}
+  .fh-story-page .st-yards h2{font-size:clamp(54px,13.3vw,78px);line-height:.94}
+  .fh-story-page .st-yards p{font-size:20px;line-height:1.5;padding-left:18px}
+  .st-yard-ledger{grid-template-columns:1fr 1fr;gap:14px;padding-top:14px}
+  .st-yard-ledger .st-yard-lead{grid-column:1/-1;min-height:220px;flex-direction:row;align-items:flex-end;padding:22px 24px}
+  .st-yard-ledger .st-yard-lead dd{font-size:clamp(150px,44vw,220px)}
+  .st-yard-ledger>div:not(.st-yard-lead){min-height:154px;padding:18px 0 8px}
+  .st-yard-ledger dt{font-size:20px}
+  .st-yard-ledger dd{font-size:clamp(70px,18vw,96px)}
+  .st-practices{padding-block:72px}
+  .st-practice-head{grid-template-columns:1fr;gap:22px;margin-bottom:36px}
+  .fh-story-page .st-practice-head h2{font-size:clamp(68px,16vw,92px);line-height:.88;max-width:8ch}
+  .fh-story-page .st-practice-head p{font-size:20px;line-height:1.5;padding-left:18px}
+  .st-practice-layout{grid-template-columns:1fr;gap:26px}
+  .st-practice-photo{min-height:0;aspect-ratio:1.2;max-height:440px}
+  .st-practice-photo img{object-position:center 47%}
+  .st-practice-list .st-practice-card{grid-template-columns:42px minmax(0,1fr);gap:18px;padding-block:26px}
+  .st-practice-index{font-size:22px}
+  .fh-story-page .st-practice-card h3{font-size:30px}
+  .fh-story-page .st-practice-card p{font-size:19px;line-height:1.5}
+}
+@media(prefers-reduced-motion:reduce){.st-yard-ledger>div,.st-practice-photo img{transition:none}}
+
+/* Cultiva /about statement: compact title beside an open narrative and field record. */
+.st-yards-split .st-yards-inner{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);grid-template-rows:auto auto;align-items:start;column-gap:clamp(44px,7vw,104px);row-gap:clamp(26px,3vw,40px)}
+.st-yards-split .st-yards-intro{display:contents}
+.fh-story-page .st-yards-split h2{grid-column:1;grid-row:1;font-size:clamp(46px,4.2vw,64px);line-height:1.02;letter-spacing:-.055em}
+.fh-story-page .st-yards-split p{grid-column:2;grid-row:1;align-self:start;justify-self:start;max-width:690px;margin:0;padding:0;border:0;font-size:clamp(24px,2vw,30px);font-weight:600;line-height:1.38}
+.st-yard-panel{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:22px 0 0;border:0;border-top:1px solid rgba(26,22,17,.34);color:var(--text-primary)}
+.st-yard-panel>div{display:flex;flex-direction:column-reverse;align-items:flex-start;justify-content:flex-end;gap:10px;min-width:0;padding:0 12px 0 0}
+.st-yard-panel dt{font-size:18px;font-weight:600;line-height:1.3}
+.st-yard-panel dd{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(40px,4.2vw,62px);line-height:1;letter-spacing:-.065em;font-variant-numeric:tabular-nums}
+.st-yard-panel>div:first-child dd{color:var(--accent)}
+@media(max-width:900px){
+  .st-yards-split .st-yards-inner{grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:26px}
+  .fh-story-page .st-yards-split h2{grid-column:1;grid-row:1;font-size:clamp(46px,8vw,64px)}
+  .fh-story-page .st-yards-split p{grid-column:1;grid-row:2;max-width:680px;font-size:clamp(23px,3vw,27px)}
+  .st-yard-panel{grid-column:1;grid-row:3;max-width:680px;width:100%;padding-top:18px}
+}
+@media(max-width:450px){
+  .st-yard-panel{gap:8px}
+  .st-yard-panel>div{padding-right:4px;gap:8px}
+  .st-yard-panel dt{font-size:16px}
+  .st-yard-panel dd{font-size:clamp(34px,10vw,42px)}
+}
+
+/* Greengrow / feature-wrapper: photographic introduction, then open principle rows. */
+.st-keeping-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:stretch;margin-bottom:clamp(64px,7vw,100px)}
+.st-keeping-copy{display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding-block:8px 48px;min-width:0}
+.fh-story-page .st-keeping-copy h2{font-size:clamp(68px,7.4vw,104px);line-height:.95;letter-spacing:-.06em}
+.fh-story-page .st-keeping-copy p{font-size:clamp(22px,1.8vw,26px);font-weight:500;line-height:1.5;max-width:440px;color:var(--on-dark)}
+.st-keeping-photos{position:relative;min-width:0;padding-bottom:48px}
+.st-keeping-yard{width:82%;aspect-ratio:4/5;margin-left:auto;overflow:hidden;background:#29231b}
+.st-keeping-inspection{position:absolute;left:0;bottom:0;width:49%;aspect-ratio:4/5;overflow:hidden;background:#29231b}
+.st-keeping-photos img{display:block;width:100%;height:100%;object-fit:cover}
+.st-keeping-yard img{object-position:57% center}
+.st-keeping-inspection img{object-position:43% center}
+/* Open practice triptych: the content order is not a numbered process. */
+.st-keeping-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4.2vw,64px);align-items:start}
+.st-keeping-principle{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding-top:24px;border-top:2px solid var(--link-soft)}
+.fh-story-page .st-keeping-principle h3{font-size:clamp(32px,3.2vw,44px);line-height:1.04;letter-spacing:-.045em;max-width:12ch}
+.fh-story-page .st-keeping-principle p{font-size:22px;line-height:1.5;font-weight:500;max-width:34ch;margin-top:18px;color:var(--on-dark)}
+@media(max-width:800px){.st-keeping-intro{grid-template-columns:1fr;gap:36px;margin-bottom:48px}.st-keeping-copy{padding:0;gap:26px}.fh-story-page .st-keeping-copy h2{font-size:clamp(64px,12vw,88px)}.fh-story-page .st-keeping-copy p{font-size:22px}.st-keeping-photos{width:min(100%,560px);justify-self:end;padding-bottom:32px}.st-keeping-principles{grid-template-columns:1fr;gap:0}.st-keeping-principle{padding-block:26px 30px}.st-keeping-principle:first-child{padding-top:24px}.fh-story-page .st-keeping-principle h3{font-size:34px}.fh-story-page .st-keeping-principle p{font-size:20px;max-width:540px;margin-top:12px}}
+/* Cultiva / Comprehensive Solutions: shared statement followed by a three-up photo record. */
+.st-yards-solutions{display:block;overflow:hidden}
+.st-yards-solutions .st-yards-inner{grid-template-columns:1fr;gap:clamp(44px,6vw,76px)}
+.st-yards-solutions .st-yards-intro{grid-template-columns:1fr;align-items:end;gap:clamp(32px,5.4vw,78px);margin:0}
+.fh-story-page .st-yards-solutions h2{max-width:none;font-size:clamp(48px,4.5vw,68px);line-height:.98;letter-spacing:-.067em}
+.st-yard-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.st-yard-card{min-width:0;overflow:hidden;background:rgba(255,255,255,.56)}
+.st-yard-card-image{position:relative;isolation:isolate;aspect-ratio:1.27;overflow:hidden;background:#d9d4c7}
+.st-yard-card-image::before{position:absolute;inset:-14px;z-index:0;content:"";pointer-events:none;background-position:center;background-size:cover;filter:blur(14px) brightness(.88);transform:scale(1.04)}
+.st-yard-card:first-child .st-yard-card-image::before{background-image:url('/img/story-yards.webp');background-position:center 58%}
+.st-yard-card:nth-child(2) .st-yard-card-image::before{background-image:url('/img/story-valleys.webp');background-position:center 48%}
+.st-yard-card:nth-child(3) .st-yard-card-image::before{background-image:url('/img/story-established.webp');background-position:center 52%}
+.st-yard-card-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.st-yard-card-image img{position:relative;z-index:1}
+.st-yard-card:hover .st-yard-card-image img{transform:scale(1.035)}
+.st-yard-card:first-child .st-yard-card-image img{object-position:center 58%}
+.st-yard-card:nth-child(2) .st-yard-card-image img{object-position:center 48%}
+.st-yard-card:nth-child(3) .st-yard-card-image img{object-position:center 52%}
+.st-yard-card-copy{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:16px;row-gap:10px;padding:22px clamp(18px,2vw,28px) 26px}
+.fh-story-page .st-yards-solutions .st-yard-card-stat{grid-column:1;grid-row:1/3;margin:0;padding:0;border:0;font-family:var(--font-display);font-size:clamp(54px,5.4vw,76px);font-weight:700;line-height:.9;letter-spacing:-.075em;font-variant-numeric:tabular-nums;color:var(--accent)}
+.fh-story-page .st-yard-card h3{grid-column:2;grid-row:1;margin:0;font-size:clamp(24px,2.1vw,30px);font-weight:700;line-height:1.08;letter-spacing:-.035em}
+.fh-story-page .st-yards-solutions .st-yard-card-copy>p:last-child{grid-column:2;grid-row:2;align-self:start;max-width:300px;margin:0;padding:0;border:0;font-size:20px;font-weight:500;line-height:1.45;color:var(--text-primary)}
+@media(max-width:900px){
+  .st-yards-solutions .st-yards-intro{grid-template-columns:1fr;gap:24px}
+  .fh-story-page .st-yards-solutions h2{font-size:clamp(52px,6.4vw,66px);max-width:none}
+  .st-yard-cards{gap:14px}
+  .st-yard-card-copy{grid-template-columns:1fr;gap:8px;padding:20px 18px 22px}
+  .fh-story-page .st-yards-solutions .st-yard-card-stat,.fh-story-page .st-yard-card h3,.fh-story-page .st-yards-solutions .st-yard-card-copy>p:last-child{grid-column:1;grid-row:auto}
+  .fh-story-page .st-yards-solutions .st-yard-card-stat{font-size:64px}
+}
+@media(max-width:700px){
+  .st-yards-solutions{padding-block:72px}
+  .st-yards-solutions .st-yards-inner{gap:36px}
+  .st-yards-solutions .st-yards-intro{gap:22px}
+  .fh-story-page .st-yards-solutions h2{font-size:clamp(50px,12.5vw,72px);line-height:.96}
+  .st-yard-cards{grid-template-columns:1fr;gap:18px}
+  .st-yard-card{display:grid;grid-template-columns:minmax(120px,.9fr) minmax(0,1.1fr);align-items:stretch}
+  .st-yard-card-image{aspect-ratio:1;min-height:0}
+  .st-yard-card-copy{align-content:center;padding:20px;gap:8px}
+  .fh-story-page .st-yards-solutions .st-yard-card-stat{font-size:clamp(52px,13vw,72px)}
+  .fh-story-page .st-yard-card h3{font-size:clamp(24px,6vw,30px)}
+  .fh-story-page .st-yard-card-copy>p:last-child{font-size:18px;line-height:1.45}
+}
+@media(max-width:430px){
+  .st-yard-card{grid-template-columns:1fr}
+  .st-yard-card-image{aspect-ratio:1.25}
+  .st-yard-card-copy{grid-template-columns:auto 1fr;align-items:baseline;column-gap:14px;padding:18px 18px 22px}
+  .fh-story-page .st-yards-solutions .st-yard-card-stat{grid-column:1;grid-row:1/3;font-size:60px}
+  .fh-story-page .st-yard-card h3{grid-column:2;grid-row:1}
+  .fh-story-page .st-yards-solutions .st-yard-card-copy>p:last-child{grid-column:2;grid-row:2}
+}
+@media(prefers-reduced-motion:reduce){.st-yard-card-image img{transition:none}}
+
+/* Harvestam reference: offset apiary photos paired with one oversized field statistic. */
+.st-yards-harvestam{display:block;overflow:clip;padding-block:clamp(88px,9vw,132px)}
+.st-yards-harvestam .st-yards-inner{grid-template-columns:1fr;gap:clamp(38px,5.5vw,72px)}
+.st-yards-harvestam .st-yards-intro{display:block;margin:0}
+.fh-story-page .st-yards-harvestam h2{max-width:14ch;font-size:clamp(64px,8.2vw,114px);line-height:.92;letter-spacing:-.075em}
+.st-harvestam-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(250px,.65fr);gap:clamp(40px,6vw,92px);align-items:stretch}
+.st-harvestam-photos{position:relative;min-width:0;min-height:clamp(430px,42vw,600px)}
+.st-harvestam-photo{position:absolute;overflow:hidden;background:transparent}
+.st-harvestam-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.st-harvestam-photo-small{left:0;top:13%;z-index:2;width:29%;height:52%}
+.st-harvestam-photo-small img{object-position:56% center}
+.st-harvestam-photo-main{left:20%;top:0;z-index:1;width:58%;height:100%}
+.st-harvestam-photo-main img{object-position:53% center}
+.st-harvestam-photo-detail{right:0;bottom:7%;z-index:3;width:29%;height:43%}
+.st-harvestam-photo-detail img{object-position:50% center}
+.st-harvestam-facts{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.st-harvestam-lead{padding:0 0 clamp(30px,4vw,54px);border-bottom:2px solid var(--text-primary)}
+.st-harvestam-lead p{margin:0;font-family:var(--font-display);font-size:clamp(160px,19vw,260px);font-weight:700;line-height:.72;letter-spacing:-.11em;color:var(--accent);font-variant-numeric:tabular-nums}
+.st-harvestam-lead h3{margin:22px 0 0;font-size:clamp(34px,4vw,54px);font-weight:700;line-height:1;letter-spacing:-.055em}
+.st-harvestam-secondary{display:grid;grid-template-columns:1fr;gap:0}
+.st-harvestam-secondary>div{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:22px 0;border-bottom:1px solid var(--hairline)}
+.st-harvestam-secondary dt{font-size:clamp(22px,2vw,28px);font-weight:700;line-height:1.2}
+.st-harvestam-secondary dd{margin:0;font-family:var(--font-display);font-size:clamp(42px,5vw,64px);font-weight:700;line-height:.95;letter-spacing:-.065em;font-variant-numeric:tabular-nums}
+@media(max-width:900px){
+  .st-harvestam-layout{grid-template-columns:1fr;gap:28px}
+  .st-harvestam-photos{min-height:clamp(390px,55vw,540px)}
+  .st-harvestam-facts{display:grid;grid-template-columns:minmax(210px,.75fr) minmax(0,1fr);align-items:stretch;gap:32px}
+  .st-harvestam-lead{display:flex;flex-direction:column;justify-content:center;padding:20px 24px 24px;background:var(--accent);color:#fff;border:0}
+  .st-harvestam-lead p{font-size:clamp(140px,22vw,210px);color:inherit}
+  .st-harvestam-lead h3{margin-top:20px;font-size:36px}
+  .st-harvestam-secondary{align-self:center;width:100%}
+}
+@media(max-width:600px){
+  .st-yards-harvestam{padding-block:72px}
+  .st-yards-harvestam .st-yards-inner{gap:32px}
+  .fh-story-page .st-yards-harvestam h2{font-size:clamp(54px,13vw,78px);line-height:.94}
+  .st-harvestam-layout{gap:22px}
+  .st-harvestam-photos{min-height:clamp(310px,84vw,420px)}
+  .st-harvestam-photo-small{top:12%;width:31%;height:48%}
+  .st-harvestam-photo-main{left:18%;width:60%}
+  .st-harvestam-photo-detail{width:31%;height:40%;bottom:5%}
+  .st-harvestam-facts{grid-template-columns:minmax(0,1fr);gap:0}
+  .st-harvestam-lead{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:18px;padding:20px 22px 22px}
+  .st-harvestam-lead p{font-size:clamp(128px,37vw,180px)}
+  .st-harvestam-lead h3{margin:0 0 8px;font-size:32px}
+  .st-harvestam-secondary{grid-template-columns:1fr 1fr;gap:16px}
+  .st-harvestam-secondary>div{align-items:flex-start;flex-direction:column-reverse;gap:8px;padding:18px 0}
+  .st-harvestam-secondary dt{font-size:20px}
+  .st-harvestam-secondary dd{font-size:clamp(42px,12vw,56px)}
+}
+@media(prefers-reduced-motion:reduce){.st-harvestam-photo img{transition:none}}
+/* Keep the oversized Harvestam number above the legacy story copy rules. */
+.fh-story-page .st-yards-harvestam .st-harvestam-lead p{max-width:none;margin:0;padding:0;border:0;font-family:var(--font-display);font-size:clamp(160px,19vw,260px);font-weight:700;line-height:.72;letter-spacing:-.11em;color:var(--accent);font-variant-numeric:tabular-nums}
+.fh-story-page .st-yards-harvestam .st-harvestam-lead h3{margin:22px 0 0;font-size:clamp(34px,4vw,54px);font-weight:700;line-height:1;letter-spacing:-.055em}
+@media(max-width:900px){
+  .fh-story-page .st-yards-harvestam .st-harvestam-lead p{font-size:clamp(140px,22vw,210px);color:inherit}
+  .fh-story-page .st-yards-harvestam .st-harvestam-lead h3{margin-top:20px;font-size:36px}
+}
+@media(max-width:600px){
+  .fh-story-page .st-yards-harvestam .st-harvestam-lead p{font-size:clamp(128px,37vw,180px)}
+  .fh-story-page .st-yards-harvestam .st-harvestam-lead h3{margin:0 0 8px;font-size:32px}
+}
+/* Harvestam Home Three / About composition, restyled with FoxHound Bee tokens. */
+.st-yards-harvestam{display:block;overflow:clip;padding-block:clamp(88px,8vw,125px)}
+.st-yards-harvestam .st-yards-inner{display:block;min-width:0}
+.st-harvestam-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;margin-bottom:clamp(38px,3.1vw,44px)}
+.st-harvestam-side-label{flex:0 0 34%;padding-top:5px;font-size:20px;font-weight:700;line-height:1.25;letter-spacing:.015em;text-transform:uppercase}
+.st-harvestam-heading{flex:1;max-width:790px;min-width:0}
+.fh-story-page .st-yards-harvestam h2{max-width:none;font-size:clamp(54px,4.4vw,72px);font-weight:700;line-height:1.03;letter-spacing:-.065em}
+.st-harvestam-collage{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;min-width:0}
+.st-harvestam-left{display:flex;flex:1 1 0%;max-width:395px;min-width:0;flex-direction:column;align-items:stretch;gap:32px}
+.st-harvestam-collage figure{position:relative;inset:auto;z-index:auto;width:auto;height:auto;overflow:hidden;margin:0;border-radius:14px;background:var(--surface-wash)}
+.st-harvestam-photo-small{aspect-ratio:1.96}
+.st-harvestam-photo-main{flex:1 1 0%;max-width:631px;aspect-ratio:1.25}
+.st-harvestam-collage img{display:block;width:100%;height:100%;object-fit:cover}
+.st-harvestam-photo-small img{object-position:center 58%}
+.st-harvestam-photo-main img{object-position:center 48%}
+.st-harvestam-established{display:flex;align-items:baseline;gap:12px;margin:0;border-top:1px solid var(--hairline);padding-top:18px;font-size:22px;font-weight:700;line-height:1.25}
+.st-harvestam-established strong{font-family:var(--font-display);font-size:30px;letter-spacing:-.04em}
+.st-harvestam-right{display:flex;flex:1 1 0%;max-width:225px;align-self:center;flex-direction:column;gap:clamp(72px,6.3vw,120px);min-width:0}
+.st-harvestam-stat{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
+.st-harvestam-counter{font-family:var(--font-display);font-size:clamp(84px,6vw,104px);font-weight:700;line-height:.81;letter-spacing:-.085em;font-variant-numeric:tabular-nums;color:var(--text-primary)}
+.fh-story-page .st-harvestam-stat h3{margin:0;font-size:clamp(22px,1.6vw,25px);font-weight:600;line-height:1.3;letter-spacing:-.02em}
+@media(max-width:900px){.st-harvestam-top{gap:26px}.st-harvestam-side-label{flex-basis:26%}.fh-story-page .st-yards-harvestam h2{font-size:clamp(48px,5.8vw,62px)}.st-harvestam-collage{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px}.st-harvestam-left{max-width:none}.st-harvestam-photo-main{grid-column:2;grid-row:1 / span 2;max-width:none;min-height:450px;aspect-ratio:auto}.st-harvestam-right{grid-column:1;grid-row:2;max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:28px}.st-harvestam-established{font-size:20px}}
+@media(max-width:600px){.st-yards-harvestam{padding-block:72px}.st-harvestam-top{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:30px}.st-harvestam-side-label{padding:0;font-size:18px}.fh-story-page .st-yards-harvestam h2{font-size:clamp(46px,11.5vw,64px);line-height:1.02}.st-harvestam-collage{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:18px}.st-harvestam-left{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:16px;align-items:center}.st-harvestam-photo-small{aspect-ratio:1.55}.st-harvestam-established{align-items:flex-start;flex-direction:column;gap:4px;padding-top:0;border-top:0;font-size:18px}.st-harvestam-established strong{font-size:28px}.st-harvestam-photo-main{grid-column:1/-1;grid-row:auto;min-height:0;aspect-ratio:1.03}.st-harvestam-right{grid-column:1/-1;grid-row:auto;grid-template-columns:1fr 1fr;gap:18px}.st-harvestam-stat{gap:12px}.st-harvestam-counter{font-size:clamp(76px,18vw,96px)}.fh-story-page .st-harvestam-stat h3{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.st-harvestam-collage figure{transition:none}}
+/* Keep the field-record detail free of the legacy story paragraph rule. */
+.fh-story-page .st-yards-harvestam .st-harvestam-established{margin:0;border:0;padding:0}
+

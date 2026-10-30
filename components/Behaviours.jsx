@@ -7,7 +7,7 @@ export default function Behaviours() {
     var navItems = Array.prototype.slice.call(
       document.querySelectorAll("[data-nav]")
     );
-    var spyIds = ["top", "hives", "harvest", "journal", "support"];
+    var spyIds = ["top", "harvest", "hives", "journal", "support"];
     var spySections = [];
     spyIds.forEach(function (id) {
       var el = document.getElementById(id);
@@ -15,6 +15,10 @@ export default function Behaviours() {
     });
 
     function spy() {
+      if (window.location.pathname === "/") {
+        navItems.forEach(function (a) { a.classList.remove("is-current"); });
+        return;
+      }
       var doc = document.documentElement;
       var atBottom =
         window.pageYOffset + window.innerHeight >= doc.scrollHeight - 4;
@@ -25,7 +29,7 @@ export default function Behaviours() {
       });
       if (atBottom) cur = spyIds[spyIds.length - 1];
       navItems.forEach(function (a) {
-        a.classList.toggle("is-current", a.getAttribute("data-nav") === cur);
+        a.classList.toggle("is-current", a.getAttribute("data-nav") === (window.location.pathname === "/harvest" ? "harvest" : window.location.pathname === "/hives" ? "hives" : window.location.pathname === "/journal" ? "journal" : cur));
       });
     }
     window.addEventListener("scroll", spy, { passive: true });
@@ -296,3 +300,5 @@ export default function Behaviours() {
 
   return null;
 }
+
+
