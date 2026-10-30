@@ -75,9 +75,11 @@
 .sp-card{background:var(--surface);color:var(--text-primary);border:2px solid var(--text-primary);box-shadow:10px 10px 0 var(--text-primary);display:grid;grid-template-columns:1.15fr 1fr;min-height:440px}
 .sp-msg{padding:36px;border-right:2px solid var(--text-primary);display:grid;gap:14px;align-content:start}
 .sp-msg b{font-family:var(--font-display);font-size:28px;letter-spacing:-.04em;margin-bottom:4px}
-.sp-msg label{display:grid;font-weight:600;font-size:18px}
-.sp-msg input,.sp-msg textarea{font:inherit;font-weight:600;color:var(--text-primary);background:transparent;border:0;border-bottom:1.5px solid var(--text-primary);border-radius:0;padding:10px 0 8px;resize:none;width:100%}
-.sp-msg input:focus-visible,.sp-msg textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.sp-msg label{display:grid;font-weight:600;font-size:18px;transition:color var(--t-color) var(--ease-color)}
+.sp-msg label:focus-within{color:var(--accent)}
+.sp-msg input,.sp-msg textarea{font:inherit;font-weight:600;color:var(--text-primary);background:transparent;border:0;border-bottom:1.5px solid var(--text-primary);border-radius:0;padding:12px 12px 10px;margin-inline:-12px;width:calc(100% + 24px);resize:none;outline:0;transition:background-color var(--t-color) var(--ease-color),box-shadow var(--t-color) var(--ease-color)}
+.sp-msg input:hover,.sp-msg textarea:hover{background:rgba(251,239,216,.55)}
+.sp-msg input:focus,.sp-msg textarea:focus{background:var(--surface-wash);box-shadow:0 3px 0 var(--accent);border-bottom-color:var(--accent)}
 .sp-to{padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
 .sp-stamp{align-self:flex-end;width:96px;height:110px;background:var(--accent);color:var(--on-dark);display:grid;place-content:center;text-align:center;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
 .sp-stamp span{font-family:var(--font-display);font-weight:700;font-size:16px;line-height:1.1;letter-spacing:.04em;text-transform:uppercase}
@@ -88,4 +90,4 @@
 .fh-support-page .sp-posted{font-weight:700;font-size:20px;color:var(--link)}
 @media(max-width:900px){.sp-card{grid-template-columns:1fr;box-shadow:8px 8px 0 var(--text-primary);margin-right:8px}.sp-msg{border-right:0;border-bottom:2px solid var(--text-primary)}.sp-to{gap:24px}.sp-stamp{align-self:flex-start;order:0}}
 @media(max-width:700px){.sp-contact-head{display:block}.fh-home.fh-support-page .sp-contact h2{font-size:clamp(52px,15vw,72px)}.fh-support-page .sp-contact-head p{font-size:20px;margin-top:18px}.sp-card{box-shadow:6px 6px 0 var(--text-primary);margin-right:6px;min-height:0}.sp-msg,.sp-to{padding:22px}}
-@media(prefers-reduced-motion:reduce){.sp-post{transition:none}}
+@media(prefers-reduced-motion:reduce){.sp-post,.sp-msg label,.sp-msg input,.sp-msg textarea{transition:none}}
