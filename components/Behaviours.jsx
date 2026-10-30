@@ -29,7 +29,7 @@ export default function Behaviours() {
       });
       if (atBottom) cur = spyIds[spyIds.length - 1];
       navItems.forEach(function (a) {
-        a.classList.toggle("is-current", a.getAttribute("data-nav") === (window.location.pathname === "/harvest" ? "harvest" : window.location.pathname === "/hives" ? "hives" : window.location.pathname === "/journal" ? "journal" : cur));
+        a.classList.toggle("is-current", a.getAttribute("data-nav") === (window.location.pathname === "/harvest" ? "harvest" : window.location.pathname === "/hives" ? "hives" : window.location.pathname === "/journal" ? "journal" : window.location.pathname === "/support" ? "support" : cur));
       });
     }
     window.addEventListener("scroll", spy, { passive: true });

@@ -2,13 +2,13 @@ import Link from "next/link";
 
 const ROWS = [
   [["Harvest", "/harvest"], ["Hives", "/hives"], ["Journal", "/journal"]],
-  [["Our story", "/story"], null, ["Contact", "#support"]],
+  [["Our story", "/story"], null, ["Contact", "/support"]],
 ];
 const POLICIES = [
   ["Privacy", "/"],
   ["Terms of use", "/"],
-  ["Shipping & returns", "#support"],
-  ["Warranty", "#support"],
+  ["Shipping & returns", "/support"],
+  ["Warranty", "/support"],
 ];
 
 export default function Footer() {

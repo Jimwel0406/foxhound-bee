@@ -1,0 +1,91 @@
+.fh-support-page .sp-opening{text-align:center;padding-block:88px 0;display:flex;flex-direction:column;align-items:center}
+.fh-home.fh-support-page h1{font-size:clamp(72px,9vw,128px);line-height:.95;letter-spacing:-.065em}
+.fh-support-page .sp-opening>p{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.45;margin-top:28px}
+.sp-topics{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-block:40px 72px}
+.sp-topics a{border:1.5px solid var(--text-primary);border-radius:var(--pill);padding:12px 24px;font-weight:700;font-size:18px;transition:background-color var(--t-color) var(--ease-color),color var(--t-color) var(--ease-color)}
+.sp-topics a:first-child,.sp-topics a:hover{background:var(--text-primary);color:var(--on-dark)}
+.sp-strip{height:clamp(260px,30vw,440px);overflow:hidden}
+.sp-strip img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.fh-support-page a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:700px){.fh-support-page .sp-opening{padding-block:56px 0}.fh-home.fh-support-page h1{font-size:clamp(64px,19vw,88px)}.fh-support-page .sp-opening>p{font-size:20px;margin-top:22px}.sp-topics{gap:8px;margin-block:32px 48px}.sp-topics a{padding:10px 16px;font-size:16px}.sp-strip{height:min(100vw,300px)}.sp-strip img{object-position:74% 58%}}
+
+/* Orders & delivery: four hex cells as a staggered delivery route. */
+.sp-orders{--c:230px;text-align:center;padding-block:clamp(80px,9vw,128px)}
+.fh-home.fh-support-page .sp-orders h2{font-size:clamp(48px,6.4vw,92px);line-height:.95;letter-spacing:-.06em}
+.fh-support-page .sp-orders>p{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.45;margin-top:24px}
+.sp-route{list-style:none;display:flex;justify-content:center;gap:12px;margin-top:64px;padding-bottom:calc(var(--c)*.6)}
+.sp-cell{flex:none;width:var(--c);height:calc(var(--c)*1.1547);display:grid;place-content:center;gap:6px;padding-inline:30px;background:var(--surface);color:var(--text-primary);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.sp-cell:nth-child(odd){background:var(--accent);color:var(--on-dark)}
+.sp-cell:nth-child(even){margin-top:calc(var(--c)*.6)}
+.sp-cell b{font-family:var(--font-display);font-size:24px;line-height:1.1;letter-spacing:-.03em}
+.sp-cell span{font-weight:600;font-size:18px}
+@media(max-width:1100px){.sp-orders{--c:190px}.sp-route{flex-wrap:wrap;max-width:calc(var(--c)*2 + 12px);margin-inline:auto}.sp-cell{padding-inline:24px}}
+@media(max-width:700px){.sp-orders{--c:min(160px,calc((100vw - 52px)/2))}.sp-route{margin-top:40px;gap:10px;max-width:calc(var(--c)*2 + 10px)}.sp-cell{padding-inline:14px}.sp-cell b{font-size:20px}.sp-cell span{font-size:16px}.fh-home.fh-support-page .sp-orders h2{font-size:clamp(44px,12.5vw,60px)}.fh-support-page .sp-orders>p{font-size:20px}}
+
+/* Shipping & returns: the rates as a parcel label, the return policy as its tear-off slip. */
+.sp-shipping{background:var(--surface-wash);padding-block:clamp(80px,9vw,128px)}
+.sp-shipping-in{display:grid;grid-template-columns:1fr 1.1fr;gap:8%;align-items:center}
+.fh-home.fh-support-page .sp-shipping h2{font-size:clamp(48px,6.4vw,92px);line-height:.95;letter-spacing:-.06em}
+.fh-support-page .sp-shipping-copy p{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.45;margin-top:26px}
+.sp-label{background:var(--surface);color:var(--text-primary);border:2px solid var(--text-primary);padding:32px;transform:rotate(-1.5deg);box-shadow:10px 10px 0 var(--text-primary)}
+.sp-label-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:3px solid var(--text-primary);padding-bottom:14px;margin-bottom:6px}
+.sp-label-top b{font-family:var(--font-display);font-size:30px;letter-spacing:-.04em}
+.sp-label-top span{font-weight:700;font-size:18px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.sp-label-row{display:flex;justify-content:space-between;gap:16px;padding-block:12px;border-bottom:1.5px dashed var(--text-primary);font-weight:700;font-size:18px}
+.sp-label-row span{font-weight:600;text-align:right}
+.sp-label-bars{height:56px;margin-top:22px;background:repeating-linear-gradient(90deg,var(--text-primary) 0 3px,transparent 3px 7px,var(--text-primary) 7px 8px,transparent 8px 14px,var(--text-primary) 14px 19px,transparent 19px 22px)}
+.fh-support-page .sp-label-slip{margin-top:22px;padding-top:16px;border-top:3px dashed var(--accent);font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+@media(max-width:1000px){.sp-shipping-in{gap:6%}.sp-label{padding:26px}}
+@media(max-width:900px){.sp-shipping-in{grid-template-columns:1fr;gap:56px}.sp-label{max-width:560px;margin-right:auto}}
+@media(max-width:700px){.sp-shipping-in{gap:48px}.fh-home.fh-support-page .sp-shipping h2{font-size:clamp(44px,12.5vw,60px)}.fh-support-page .sp-shipping-copy p{font-size:20px;margin-top:20px}.sp-label{padding:22px;box-shadow:6px 6px 0 var(--text-primary);margin-right:6px}.sp-label-top b{font-size:24px}.sp-label-top span{font-size:16px}.sp-label-row,.fh-support-page .sp-label-slip{font-size:16px}}
+
+/* Warranty: a double-ruled certificate with a hex seal. */
+.sp-warranty{padding-block:clamp(80px,9vw,128px)}
+.sp-warranty-in{display:grid;grid-template-columns:1fr 1.15fr;gap:8%;align-items:center}
+.fh-home.fh-support-page .sp-warranty h2{font-size:clamp(48px,6.4vw,92px);line-height:.95;letter-spacing:-.06em}
+.fh-support-page .sp-warranty-copy p{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.45;margin-top:26px}
+.sp-cert{background:var(--surface);border:2px solid var(--text-primary);outline:2px solid var(--text-primary);outline-offset:6px;margin:8px;padding:44px 40px;text-align:center}
+.sp-seal{width:120px;height:138px;margin:0 auto 22px;display:grid;place-content:center;background:var(--accent);color:var(--on-dark);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.sp-seal b{font-family:var(--font-display);font-size:44px;line-height:1;letter-spacing:-.05em}
+.sp-seal span{font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
+.fh-home.fh-support-page .sp-cert h3{font-size:34px}
+.fh-support-page .sp-cert p{font-weight:600;margin-top:10px}
+.sp-cert-sn{display:flex;justify-content:space-between;gap:16px;margin-top:26px;padding-top:16px;border-top:1.5px dashed var(--text-primary);font-weight:700;font-size:18px}
+@media(max-width:900px){.sp-warranty-in{grid-template-columns:1fr;gap:56px}.sp-cert{max-width:560px}}
+@media(max-width:700px){.sp-warranty-in{gap:48px}.fh-home.fh-support-page .sp-warranty h2{font-size:clamp(52px,15vw,72px)}.fh-support-page .sp-warranty-copy p{font-size:20px;margin-top:20px}.sp-cert{padding:28px 20px}.fh-home.fh-support-page .sp-cert h3{font-size:28px}.sp-cert-sn{flex-direction:column;gap:4px;font-size:16px}}
+
+/* Hive care: the first week as four ticked boxes. */
+.sp-care{background:var(--surface-wash);padding-block:clamp(80px,9vw,128px)}
+.sp-care-head{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:end;margin-bottom:clamp(40px,5vw,56px)}
+.fh-home.fh-support-page .sp-care h2{font-size:clamp(48px,6.4vw,92px);line-height:.95;letter-spacing:-.06em}
+.fh-support-page .sp-care-head p{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.45;max-width:380px}
+.sp-care-list{list-style:none}
+.sp-care-row{display:grid;grid-template-columns:44px 1fr auto;gap:24px;align-items:center;padding-block:26px;border-top:1px solid var(--hairline)}
+.sp-care-row:last-child{border-bottom:1px solid var(--hairline)}
+.sp-care-row b{font-family:var(--font-display);font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:-.05em}
+.sp-care-row em{font-style:normal;font-weight:600;font-size:18px}
+.sp-tick{width:44px;height:44px;border:2.5px solid var(--text-primary);display:grid;place-content:center;color:var(--accent);font-size:30px;line-height:1;font-weight:700}
+@media(max-width:700px){.sp-care-head{grid-template-columns:1fr;gap:20px}.fh-home.fh-support-page .sp-care h2{font-size:clamp(52px,15vw,72px)}.fh-support-page .sp-care-head p{font-size:20px}.sp-care-row{grid-template-columns:36px 1fr;gap:4px 16px;padding-block:20px}.sp-care-row em{grid-column:2;font-size:16px}.sp-tick{width:36px;height:36px;font-size:24px}.sp-care-row b{font-size:28px}}
+
+/* Contact: a postcard with a message side, an address side and a hex stamp. */
+.sp-contact{padding-block:clamp(80px,9vw,128px)}
+.sp-contact-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(40px,5vw,56px)}
+.fh-home.fh-support-page .sp-contact h2{font-size:clamp(48px,6.4vw,92px);line-height:.95;letter-spacing:-.06em}
+.fh-support-page .sp-contact-head p{font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.45}
+.sp-card{background:var(--surface);color:var(--text-primary);border:2px solid var(--text-primary);box-shadow:10px 10px 0 var(--text-primary);display:grid;grid-template-columns:1.15fr 1fr;min-height:440px}
+.sp-msg{padding:36px;border-right:2px solid var(--text-primary);display:grid;gap:14px;align-content:start}
+.sp-msg b{font-family:var(--font-display);font-size:28px;letter-spacing:-.04em;margin-bottom:4px}
+.sp-msg label{display:grid;font-weight:600;font-size:18px}
+.sp-msg input,.sp-msg textarea{font:inherit;font-weight:600;color:var(--text-primary);background:transparent;border:0;border-bottom:1.5px solid var(--text-primary);border-radius:0;padding:10px 0 8px;resize:none;width:100%}
+.sp-msg input:focus-visible,.sp-msg textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.sp-to{padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.sp-stamp{align-self:flex-end;width:96px;height:110px;background:var(--accent);color:var(--on-dark);display:grid;place-content:center;text-align:center;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.sp-stamp span{font-family:var(--font-display);font-weight:700;font-size:16px;line-height:1.1;letter-spacing:.04em;text-transform:uppercase}
+.sp-addr div{border-bottom:1.5px solid var(--text-primary);padding:12px 0;font-weight:700;font-size:18px}
+.sp-post{align-self:flex-start;background:var(--accent);color:var(--on-dark);border-radius:var(--pill);padding:14px 30px;font-weight:700;font-size:18px;transition:background-color var(--t-color) var(--ease-color)}
+.sp-post:hover{background:var(--accent-hover)}
+.sp-post:focus-visible{outline:3px solid var(--text-primary);outline-offset:4px}
+.fh-support-page .sp-posted{font-weight:700;font-size:20px;color:var(--link)}
+@media(max-width:900px){.sp-card{grid-template-columns:1fr;box-shadow:8px 8px 0 var(--text-primary);margin-right:8px}.sp-msg{border-right:0;border-bottom:2px solid var(--text-primary)}.sp-to{gap:24px}.sp-stamp{align-self:flex-start;order:0}}
+@media(max-width:700px){.sp-contact-head{display:block}.fh-home.fh-support-page .sp-contact h2{font-size:clamp(52px,15vw,72px)}.fh-support-page .sp-contact-head p{font-size:20px;margin-top:18px}.sp-card{box-shadow:6px 6px 0 var(--text-primary);margin-right:6px;min-height:0}.sp-msg,.sp-to{padding:22px}}
+@media(prefers-reduced-motion:reduce){.sp-post{transition:none}}

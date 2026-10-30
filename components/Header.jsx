@@ -14,7 +14,7 @@ export default function Header() {
             <Link href="/harvest" data-nav="harvest">Harvest</Link>
             <Link href="/hives" data-nav="hives">Hives</Link>
             <Link href="/journal" data-nav="journal">Journal</Link>
-            <Link href="/#support" data-nav="support">Support</Link>
+            <Link href="/support" data-nav="support">Support</Link>
           </nav>
           <div className="nav-tools">
             <button className="icon-btn" id="searchBtn" aria-label="Search foxhound.co">
@@ -49,7 +49,7 @@ export default function Header() {
           <Link href="/journal" data-nav="journal">
             Journal <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
           </Link>
-          <Link href="/#support" data-nav="support">
+          <Link href="/support" data-nav="support">
             Support <svg viewBox="0 0 24 24"><use href="#i-chev" /></svg>
           </Link>
         </div>
